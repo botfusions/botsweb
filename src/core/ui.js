@@ -1,6 +1,7 @@
 // Page chrome shared by every world: preloader, cursor, magnetic buttons, collection navigator.
 import { gsap } from 'gsap';
 import { WORLDS } from './worlds.js';
+import { lang } from './i18n.js';
 import './ui.css';
 
 /**
@@ -88,16 +89,17 @@ export function worldNav(slug, { theme = 'dark', corner = 'bl' } = {}) {
   const prev = WORLDS[(i - 1 + WORLDS.length) % WORLDS.length];
   const next = WORLDS[(i + 1) % WORLDS.length];
   const base = import.meta.env.BASE_URL;
+  const tr = lang === 'tr';
   const nav = document.createElement('nav');
   nav.className = `tw-nav tw-nav-${theme} tw-nav-${corner}`;
-  nav.setAttribute('aria-label', 'Twenty Worlds');
+  nav.setAttribute('aria-label', tr ? 'Yirmi Dünya' : 'Twenty Worlds');
   nav.innerHTML = `
-    <a class="tw-nav-home" href="${base}" title="All twenty worlds">
+    <a class="tw-nav-home" href="${base}" title="${tr ? 'Yirmi dünyanın tamamı' : 'All twenty worlds'}">
       <svg viewBox="0 0 20 20" aria-hidden="true"><g fill="currentColor">${[0, 1, 2, 3].map(r => [0, 1, 2, 3, 4].map(c => `<rect x="${1 + c * 3.8}" y="${2 + r * 4.4}" width="2.2" height="2.2" rx=".6" opacity="${(r * 5 + c) === i ? 1 : 0.38}"/>`).join('')).join('')}</g></svg>
     </a>
-    <a href="${base}examples/${prev.slug}/" class="tw-nav-step" title="${prev.name}" aria-label="Previous world: ${prev.name}">‹</a>
+    <a href="${base}examples/${prev.slug}/" class="tw-nav-step" title="${prev.name}" aria-label="${tr ? 'Önceki dünya' : 'Previous world'}: ${prev.name}">‹</a>
     <span class="tw-nav-count">${String(i + 1).padStart(2, '0')}<em>/20</em></span>
-    <a href="${base}examples/${next.slug}/" class="tw-nav-step" title="${next.name}" aria-label="Next world: ${next.name}">›</a>`;
+    <a href="${base}examples/${next.slug}/" class="tw-nav-step" title="${next.name}" aria-label="${tr ? 'Sonraki dünya' : 'Next world'}: ${next.name}">›</a>`;
   document.body.appendChild(nav);
   return nav;
 }

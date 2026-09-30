@@ -5,6 +5,34 @@ import { smoothScroll, gsap, elementProgress } from '../core/scroll.js';
 import { cursor } from '../core/ui.js';
 import { PlanarReflection } from '../core/reflector.js';
 import { WORLDS } from '../core/worlds.js';
+import { lang, setLang } from '../core/i18n.js';
+
+// ─── Turkish copy (English lives in index.html) ──────────────────────────────
+const TR = {
+  'nav.index': 'İndeks', 'nav.about': 'Hakkında',
+  kicker: 'Yirmi etkileşimli 3D açılış sayfası',
+  h1: 'Yirmi <em>Dünya</em>',
+  enter: 'Dünyaya gir',
+  hint: 'Döndürmek için kaydır ya da sürükle · Girmek için bir pencereye tıkla',
+  listH: 'İndeks',
+  listP: 'Her dünya, kurgusal bir marka için hazırlanmış eksiksiz bir açılış sayfası ve dokunabileceğin tek bir etkileşimin etrafında kurulu. Ana nesneler, Nano&nbsp;Banana&nbsp;2 referans görsellerinden üretilmiş Meshy&nbsp;7.1 görselden-3D modelleri; ışıkları ve hareketleri three.js ile kurgulandı.',
+  aboutK: 'Nasıl yapıldılar',
+  aboutH: 'Dünya başına tek fikir. <em>Hazır stok görsel yok.</em>',
+  p1: '<b>Varlıklar.</b> Nano Banana 2 ile üretilen temiz ürün görselleri, Meshy 7.1 ile 4K geometride 60 bin–250 bin üçgenlik PBR modellere dönüştürüldü, ardından meshopt ve WebP ile sıkıştırıldı.',
+  p2: '<b>Görüntü işleme.</b> HDR son işlem zinciriyle three.js: N8AO ortam tıkanması, mip zincirli bloom, AgX ton eşleme, ışın izlemeli hacimsel ışık, düzlemsel yansımalar ve film greni.',
+  p3: '<b>Etkileşim.</b> Her sayfanın kendine özgü bir mekaniği var: bir fener, bir ocak, bir gölet, bir mercek, bir gelgit, bir pikap. Sayfa sahnenin kendisi; kaydırma ise kamera.',
+};
+const tr = lang === 'tr';
+if (tr) {
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = TR[el.dataset.i18n]; });
+  document.querySelector('.ring-section').setAttribute('aria-label', 'Dünyalara göz at');
+  document.querySelector('meta[name=description]').content = 'Yirmi etkileşimli 3D açılış sayfası. Her biri, dokunabileceğin tek bir fikir etrafında kurulu.';
+}
+const langBtn = document.querySelector('.lang');
+langBtn.textContent = tr ? 'EN' : 'TR';
+langBtn.setAttribute('aria-label', tr ? 'Switch to English' : 'Türkçeye geç');
+langBtn.addEventListener('click', () => setLang(tr ? 'en' : 'tr'));
+const lineOf = w => (tr ? w.lineTr : w.line);
 
 const BASE = import.meta.env.BASE_URL;
 const N = WORLDS.length;
@@ -117,7 +145,7 @@ function setActive(i) {
   ui.root.style.setProperty('--hue', w.hue);
   gsap.to([ui.name, ui.line], { opacity: 0, y: -8, duration: 0.18, onComplete: () => {
     ui.num.textContent = String(i + 1).padStart(2, '0');
-    ui.name.textContent = w.name; ui.line.textContent = w.line;
+    ui.name.textContent = w.name; ui.line.textContent = lineOf(w);
     ui.enter.href = `${BASE}examples/${w.slug}/`;
     gsap.fromTo([ui.name, ui.line], { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', stagger: 0.05 });
   } });
@@ -199,7 +227,7 @@ const rows = document.querySelector('.rows');
 const preview = document.querySelector('.preview');
 const pimg = preview.querySelector('img');
 rows.innerHTML = WORLDS.map((w, i) => `<li><a href="${BASE}examples/${w.slug}/" data-i="${i}">
-  <span class="num">${String(i + 1).padStart(2, '0')}</span><span class="name">${w.name}</span><span class="line">${w.line}</span><span class="dot" style="color:${w.hue};background:${w.hue}"></span></a></li>`).join('');
+  <span class="num">${String(i + 1).padStart(2, '0')}</span><span class="name">${w.name}</span><span class="line">${lineOf(w)}</span><span class="dot" style="color:${w.hue};background:${w.hue}"></span></a></li>`).join('');
 let px = 0, py = 0, tx = 0, ty = 0;
 rows.addEventListener('pointerover', e => { const a = e.target.closest('a'); if (!a) return; pimg.src = `${BASE}img/index/${WORLDS[+a.dataset.i].slug}.webp`; preview.classList.add('on'); });
 rows.addEventListener('pointerleave', () => preview.classList.remove('on'));
