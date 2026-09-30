@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nightshift Motor Co. — Twelve bikes a year</title>
+  <meta name="description" content="Hand-built café racers from a two-bay garage in Rotterdam that only opens after dark. Twelve bikes a year. This is number seven.">
+  <meta name="theme-color" content="#050507">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Neonderthaw&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="redline-flash" aria-hidden="true"></div>
+
+  <div class="loader" role="status" aria-live="polite">
+    <p class="loader-sign" aria-hidden="true"><span>Nightshift</span></p>
+    <div class="loader-bar"><i></i></div>
+    <p class="loader-line"><span>Warming the engine</span><b class="loader-pct">0</b></p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Nightshift Motor Co. home">
+      <b>Nightshift</b><span>Motor Co.</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#rev">Rev it</a>
+      <a href="#build">The build</a>
+      <a href="#waitlist">2027 slots</a>
+      <a href="#garage">The garage</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" type="button" aria-pressed="false" data-magnetic>
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="sound-label">Sound off</span>
+      </button>
+      <a class="btn btn-neon" href="#waitlist" data-magnetic>Reserve a slot</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" data-station="hero">
+      <p class="eyebrow"><span class="dot"></span>Build 07 / 12 &nbsp;·&nbsp; Rotterdam, 01:40, raining</p>
+      <div class="hero-bottom">
+        <div class="hero-row">
+          <p class="sub">Hand-built café racers from a two-bay garage under the Maas bridge. We open when the city closes, and we finish one bike a month.</p>
+          <div class="hold-hint" aria-hidden="true">
+            <span class="hold-ring"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="20"/><circle class="p" cx="22" cy="22" r="20"/></svg><i></i></span>
+            <span><b>Hold</b> anywhere to rev <em>or press space</em></span>
+          </div>
+        </div>
+        <h1 aria-label="Twelve bikes a year. This is number seven.">
+          <span class="h-line"><span>Twelve bikes a year.</span></span>
+        </h1>
+        <p class="script" aria-hidden="true">This is number seven.</p>
+      </div>
+    </section>
+
+    <!-- REV -->
+    <section class="rev" id="rev" data-station="rev">
+      <div class="rev-copy">
+        <p class="kicker"><b>01</b> Rev it</p>
+        <h2>Wake her <em>up.</em></h2>
+        <p class="lede">A 1968 air-cooled parallel twin, bored to 790cc and rebuilt from the crank out. We re-phased it to a 270° firing order, so it lopes like a V-twin at idle and pulls clean to 8,500.</p>
+        <ul class="rev-notes">
+          <li><span>Hold</span> mouse, space or the button to open the throttle.</li>
+          <li><span>Let go</span> above five thousand for the crackle on the overrun.</li>
+          <li><span>Watch</span> the headlight — on a 1968 charging system it brightens with the revs.</li>
+        </ul>
+        <button class="rev-btn" type="button" aria-label="Hold to rev the engine">
+          <span class="rev-btn-ring"></span><span class="rev-btn-label">Hold to rev</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- BUILD -->
+    <section class="build" id="build">
+      <header class="build-head" data-station="buildhead">
+        <p class="kicker"><b>02</b> The build</p>
+        <h2>Nine hundred hours, <em>four pairs of hands.</em></h2>
+      </header>
+
+      <article class="part part-r" data-station="tank">
+        <p class="part-num">01 / 04 · Tank</p>
+        <h3>Twelve coats of black, <br>one brush of gold.</h3>
+        <p>Hand-beaten from 1.2&nbsp;mm aluminium over a wooden buck, then twelve coats of piano black, wet-sanded between each. The pinstripe is 23-carat gold leaf laid by one brush — Marit's — in a single breath per side.</p>
+        <dl class="specs">
+          <div><dt>Capacity</dt><dd>14<small>L</small></dd></div>
+          <div><dt>Paint coats</dt><dd>12</dd></div>
+          <div><dt>Pinstripe</dt><dd>0.8<small>mm</small></dd></div>
+        </dl>
+      </article>
+
+      <article class="part part-l" data-station="engine">
+        <p class="part-num">02 / 04 · Engine</p>
+        <h3>Fins you could <br>shave with.</h3>
+        <p>Every cooling fin is hand-dressed with a file, the cases vapour-blasted then polished to a mirror. Brass unions and fuel taps are turned on a 1954 lathe in the back bay. It idles at 1,100 and never leaks. We check.</p>
+        <dl class="specs">
+          <div><dt>Displacement</dt><dd>790<small>cc</small></dd></div>
+          <div><dt>Power</dt><dd>58<small>hp</small></dd></div>
+          <div><dt>Torque</dt><dd>64<small>Nm</small></dd></div>
+        </dl>
+      </article>
+
+      <article class="part part-r" data-station="seat">
+        <p class="part-num">03 / 04 · Seat</p>
+        <h3>Leather that <br>remembers you.</h3>
+        <p>Vegetable-tanned Tuscan hide, 3&nbsp;mm thick, quilted in a diagonal stitch that takes eleven hours at the bench. It will darken where you sit and crease where you tuck in. That is the point.</p>
+        <dl class="specs">
+          <div><dt>Stitching</dt><dd>11<small>h</small></dd></div>
+          <div><dt>Hide</dt><dd>3<small>mm</small></dd></div>
+          <div><dt>Riders</dt><dd>1</dd></div>
+        </dl>
+      </article>
+
+      <article class="part part-l" data-station="wheel">
+        <p class="part-num">04 / 04 · Wheels</p>
+        <h3>Forty spokes, <br>trued by ear.</h3>
+        <p>Eighteen-inch alloy rims laced to polished hubs with forty stainless spokes each, tensioned by tapping and listening until every one rings the same note. Up front, a 320&nbsp;mm floating disc that looks nothing like 1968 and stops like it isn't.</p>
+        <dl class="specs">
+          <div><dt>Rims</dt><dd>18<small>in</small></dd></div>
+          <div><dt>Spokes</dt><dd>40</dd></div>
+          <div><dt>Disc</dt><dd>320<small>mm</small></dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <!-- WAITLIST -->
+    <section class="waitlist" id="waitlist" data-station="waitlist">
+      <div class="wl-panel">
+        <p class="kicker"><b>03</b> The 2027 waitlist</p>
+        <h2>Twelve slots. <em>Nine are gone.</em></h2>
+        <p class="lede">Each build takes fourteen weeks and starts with a night in the garage: you, us, a donor engine and a lot of coffee. A €5,000 deposit holds your month. It is refundable until we cut the first tube.</p>
+        <ol class="slots" aria-label="2027 build slots">
+          <li class="taken"><b>01</b><span>Jan</span></li>
+          <li class="taken"><b>02</b><span>Feb</span></li>
+          <li class="taken"><b>03</b><span>Mar</span></li>
+          <li class="taken"><b>04</b><span>Apr</span></li>
+          <li class="open" data-slot="05"><b>05</b><span>May</span></li>
+          <li class="taken"><b>06</b><span>Jun</span></li>
+          <li class="taken"><b>07</b><span>Jul</span></li>
+          <li class="taken"><b>08</b><span>Aug</span></li>
+          <li class="open" data-slot="09"><b>09</b><span>Sep</span></li>
+          <li class="taken"><b>10</b><span>Oct</span></li>
+          <li class="open" data-slot="11"><b>11</b><span>Nov</span></li>
+          <li class="taken"><b>12</b><span>Dec</span></li>
+        </ol>
+        <form class="wl-form" novalidate>
+          <label><span>Name</span><input name="name" autocomplete="off" placeholder="Who's riding"></label>
+          <label><span>Email</span><input name="email" type="email" autocomplete="off" placeholder="Where we write back"></label>
+          <label class="wide"><span>Slot</span>
+            <select name="slot"><option value="05">No. 05 — May 2027</option><option value="09">No. 09 — September 2027</option><option value="11">No. 11 — November 2027</option></select>
+          </label>
+          <button class="btn btn-neon wide" type="submit" data-magnetic>Hold my month · €5,000 deposit</button>
+          <p class="wl-fine wide">From €38,000 complete. We reply within one night shift. Nothing is charged until we have spoken.</p>
+        </form>
+        <p class="wl-done" role="status" hidden>You're on the list for <b>No. 05</b>. We'll call after midnight — keep the phone on.</p>
+      </div>
+    </section>
+
+    <!-- GARAGE -->
+    <section class="garage" id="garage" data-station="garage">
+      <div class="garage-copy">
+        <p class="kicker"><b>04</b> The garage</p>
+        <h2>We open when <br>the city <em>closes.</em></h2>
+        <p class="lede">Nightshift started in 2011 as two dock mechanics working the hours nobody wanted — ten at night to six in the morning, in a borrowed bay under the Maas bridge. The hours stuck. So did the rain.</p>
+        <p>Fifteen years later there are four of us, two bays and a neon sign that has buzzed since the night we hung it. Nobody answers the phone before dark. Everybody answers it after.</p>
+        <dl class="garage-stats">
+          <div><dt>Since</dt><dd>2011</dd></div>
+          <div><dt>Bikes delivered</dt><dd>147</dd></div>
+          <div><dt>Builders</dt><dd>4</dd></div>
+          <div><dt>Built in daylight</dt><dd>0</dd></div>
+        </dl>
+      </div>
+      <blockquote class="garage-quote" data-station="quote">
+        <p>“I asked for a motorbike. They gave me a reason to ride at three in the morning.”</p>
+        <cite>— Joris V., owner of No. 112</cite>
+      </blockquote>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="foot" id="visit" data-station="foot">
+      <p class="script foot-script" aria-hidden="true">see you after midnight</p>
+      <h2 class="foot-title">Come by <br>after dark.</h2>
+      <div class="foot-cols">
+        <p><b>Nightshift Motor Co.</b><br>Kadewerf 14, Bay 2<br>3072 Rotterdam, NL</p>
+        <p><b>Open</b><br>Tuesday — Saturday<br>22:00 — 06:00</p>
+        <p><b>Write</b><br><a href="#waitlist">builds@nightshift.moto</a><br><a href="#top">Instagram</a> · <a href="#top">Journal</a></p>
+        <a class="btn btn-neon" href="#waitlist" data-magnetic>Reserve a 2027 slot</a>
+      </div>
+      <p class="foot-legal"><span>© 2026 Nightshift Motor Co. — a fictional workshop.</span><span>Photographed in the rain. Nothing was harmed except sleep.</span></p>
+    </footer>
+  </main>
+
+  <button class="rev-btn rev-fab" type="button" aria-label="Hold to rev the engine"><span class="rev-btn-ring"></span><span class="rev-btn-label">Hold<br>to rev</span></button>
+
+  <!-- Tachometer (big in the rev section, mini while revving elsewhere) -->
+  <div class="tacho" aria-hidden="true">
+    <svg viewBox="-160 -160 320 320" class="tacho-svg">
+      <defs>
+        <radialGradient id="tFace" cx="50%" cy="38%" r="70%"><stop offset="0" stop-color="#16151a"/><stop offset=".7" stop-color="#08080a"/><stop offset="1" stop-color="#020203"/></radialGradient>
+        <linearGradient id="tBezel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3dca0"/><stop offset=".35" stop-color="#9c7a3c"/><stop offset=".6" stop-color="#5a4320"/><stop offset=".85" stop-color="#d8b872"/><stop offset="1" stop-color="#6d5329"/></linearGradient>
+        <linearGradient id="tGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".09"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        <filter id="tGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <circle r="156" fill="url(#tBezel)"/>
+      <circle r="147" fill="#050506"/>
+      <circle r="144" fill="url(#tFace)"/>
+      <g class="tacho-ticks"></g>
+      <path class="tacho-red" fill="none" stroke="#ff3b5c" stroke-width="7" filter="url(#tGlow)"/>
+      <path class="tacho-arc" fill="none" stroke="#ff3b5c" stroke-width="2.4" stroke-linecap="round" filter="url(#tGlow)"/>
+      <text class="tacho-unit" y="-52" text-anchor="middle">×1000 r/min</text>
+      <text class="tacho-brand" y="-34" text-anchor="middle">Nightshift</text>
+      <text class="tacho-rpm" y="70" text-anchor="middle">1,100</text>
+      <text class="tacho-gear" y="96" text-anchor="middle">N · 07</text>
+      <circle class="tacho-shift" cx="0" cy="-92" r="6"/>
+      <g class="tacho-needle">
+        <path d="M -3.2 18 L -1.1 -128 L 1.1 -128 L 3.2 18 Z" fill="#ff3b5c" filter="url(#tGlow)"/>
+        <path d="M -0.6 10 L -0.3 -124 L 0.3 -124 L 0.6 10 Z" fill="#ffd6de"/>
+      </g>
+      <circle r="15" fill="url(#tBezel)"/>
+      <circle r="7" fill="#0c0b0d"/>
+      <circle r="144" fill="url(#tGlass)"/>
+    </svg>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

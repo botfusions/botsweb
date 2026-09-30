@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gambit — Hand-carved marble chess &amp; a members’ salon</title>
+  <meta name="description" content="Chess sets carved from Carrara and Nero Marquina marble, and a salon in Paris where the old games are still played. Replay the Immortal Game, move by move.">
+  <meta name="theme-color" content="#080706">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="grade" aria-hidden="true"></div>
+
+  <div class="loader" role="status" aria-live="polite">
+    <svg class="tour" viewBox="0 0 80 80" aria-hidden="true"><g class="tour-grid"></g><polyline class="tour-line" fill="none"/><circle class="tour-knight" r="1.6"/></svg>
+    <p class="loader-brand">Gambit</p>
+    <p class="loader-line">Setting the board <span class="loader-pct">0</span></p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Gambit home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 27h13M11.5 27c.4-3 1.6-5.2 3.4-7.1-2.3-.2-4.3.6-5.6 1.8-.9-.9-1.2-2.1-.7-3.3 1.4-3.6 4-6.3 5.3-9.6l1.2-2.9 1.3 2.4c3.9 1 6.4 4.5 6.3 9.4-.1 3.4-1.2 6.4-1.5 9.3" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/><circle cx="16.8" cy="12.2" r=".8" fill="currentColor"/></svg>
+      <span>Gambit</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#game">The Immortal Game</a>
+      <a href="#set">The Set</a>
+      <a href="#salon">The Salon</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" type="button" aria-pressed="false" aria-label="Toggle sound"><i></i><i></i><i></i><i></i><span>Sound</span></button>
+      <a class="btn btn-ghost" href="#set" data-magnetic>Reserve a set</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero ─────────────────────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-top">
+          <p class="eyebrow">Hand-carved marble chess · Carrara — Paris</p>
+          <h1 id="hero-title" class="hero-title"><span class="ln"><span>Some games</span></span><span class="ln"><span>are never <em>finished.</em></span></span></h1>
+        </div>
+        <div class="hero-bottom">
+        <p class="hero-sub">We carve chess sets from Carrara and Nero Marquina marble, one piece at a time, and keep a salon where the old games are still played. Begin with the most famous of them.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#game" data-magnetic>Replay the Immortal Game</a>
+          <a class="link-arrow" href="#set">The set, €3,900</a>
+        </div>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span class="cue-line"><i></i></span><span>Scroll to play the first move</span></div>
+    </section>
+
+    <!-- The replay (pinned) ──────────────────────────────────────────────── -->
+    <section class="replay" id="game" aria-label="The Immortal Game, replayed">
+      <div class="replay-pin">
+        <div class="replay-intro">
+          <p class="eyebrow">London · 21 June 1851</p>
+          <h2>The Immortal Game</h2>
+          <p>An informal game at Simpson’s Divan, played in a break of the first international tournament. Anderssen gives away a bishop, both rooks and his queen — and mates with what is left.</p>
+        </div>
+
+        <aside class="score" aria-label="Game score">
+          <header class="score-head">
+            <p class="eyebrow">The score</p>
+            <p class="players"><span><i class="dot w"></i>Adolf Anderssen</span><span class="vs">—</span><span><i class="dot b"></i>Lionel Kieseritzky</span></p>
+            <p class="opening">King’s Gambit Accepted · Bryan Counter-Gambit</p>
+          </header>
+          <div class="score-window"><ol class="score-list"></ol></div>
+          <footer class="score-foot">
+            <div class="score-bar"><i></i></div>
+            <p><span class="score-move">Before the first move</span><span class="score-count">0 / 23</span></p>
+          </footer>
+        </aside>
+
+        <div class="caption" aria-live="polite">
+          <p class="caption-san"><span class="caption-num"></span><span class="caption-text"></span></p>
+          <p class="caption-note"></p>
+        </div>
+        <div class="tag" aria-hidden="true"><span class="tag-san"></span><i class="tag-line"></i></div>
+      </div>
+    </section>
+
+    <!-- Free play ────────────────────────────────────────────────────────── -->
+    <section class="free" id="play" aria-labelledby="free-title">
+      <div class="free-pin">
+        <div class="free-copy">
+          <p class="eyebrow">1–0 · Your move</p>
+          <h2 id="free-title">The game is over.<br><em>The board is yours.</em></h2>
+          <p>Pick up any piece and put it down wherever you like. Drop it on an opponent and it falls. Each piece is turned, carved and polished by hand; each one weighs what a chess piece should.</p>
+          <div class="free-actions">
+            <button class="btn btn-ghost" type="button" data-arrange="final" data-magnetic>Restore the final position</button>
+            <button class="btn btn-ghost" type="button" data-arrange="start" data-magnetic>Set up a new game</button>
+          </div>
+        </div>
+        <p class="free-hint" aria-hidden="true"><span class="hand"></span>Drag any piece · drop it on a square</p>
+      </div>
+    </section>
+
+    <!-- The set ──────────────────────────────────────────────────────────── -->
+    <section class="set panel" id="set" aria-labelledby="set-title">
+      <div class="set-copy">
+        <p class="eyebrow">No. 1851 · The Immortal Set</p>
+        <h2 id="set-title">Carrara &amp;<br><em>Nero Marquina.</em></h2>
+        <p class="lede">Thirty-two pieces from two quarries a thousand kilometres apart: white statuary from the Apuan Alps above Carrara, and black Nero Marquina from Markina in the Basque hills, its veins running bone and gold.</p>
+        <dl class="specs">
+          <div><dt>King</dt><dd>98 mm, Staunton proportions, weighted and felted in green baize</dd></div>
+          <div><dt>Board</dt><dd>Botticino and Emperador squares, 57 mm, inlaid in American black walnut with a brass fillet</dd></div>
+          <div><dt>Hands</dt><dd>One carver per set, from the first cut to the last polish — eleven weeks</dd></div>
+          <div><dt>Edition</dt><dd>Numbered, signed under the white king. Forty sets a year</dd></div>
+        </dl>
+        <div class="price-row" id="reserve">
+          <p class="price">€3,900 <span>board, set and fitted case · delivered by hand in Europe</span></p>
+          <a class="btn btn-solid" href="mailto:salon@gambit.example?subject=Reserving%20set%20No.%201851" data-magnetic>Reserve set No. 1851</a>
+        </div>
+      </div>
+      <div class="set-notes" aria-hidden="true">
+        <div class="note-card"><span class="nc-k">White</span><b>Statuario Carrara</b><span>Apuan Alps, Tuscany</span></div>
+        <div class="note-card"><span class="nc-k">Black</span><b>Nero Marquina</b><span>Markina-Xemein, Biscay</span></div>
+      </div>
+    </section>
+
+    <!-- The salon ────────────────────────────────────────────────────────── -->
+    <section class="salon panel" id="salon" aria-labelledby="salon-title">
+      <div class="salon-copy">
+        <p class="eyebrow">The Salon · rue Saint-Honoré, Paris</p>
+        <h2 id="salon-title">Members’<br><em>evenings.</em></h2>
+        <p class="lede">A few doors from where the Café de la Régence once stood, twelve tables under twelve lamps. Kieseritzky telegraphed this game to his club in Paris the night he lost it. We have been replaying it ever since.</p>
+        <ol class="evenings">
+          <li><span class="ev-day">Tuesday</span><div><h3>Replay night</h3><p>A grandmaster walks the room through one historic game, move by move. This month: the Evergreen, Berlin 1852.</p></div><span class="ev-time">20:00</span></li>
+          <li><span class="ev-day">Thursday</span><div><h3>Slow chess</h3><p>Ninety minutes a side. Clocks are pressed, never slammed. Wine by the glass, phones in the drawer.</p></div><span class="ev-time">19:30</span></li>
+          <li><span class="ev-day">First Sunday</span><div><h3>The simultaneous</h3><p>Our house master plays twenty members at once. Win, and your name is cut into the wall.</p></div><span class="ev-time">16:00</span></li>
+        </ol>
+        <div class="price-row">
+          <p class="price">€480 <span>a year · two guest evenings · your own locker for your own set</span></p>
+          <a class="btn btn-ghost" href="mailto:salon@gambit.example?subject=Membership" data-magnetic>Apply for membership</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA + footer ─────────────────────────────────────────────────────── -->
+    <footer class="foot panel" id="visit">
+      <h2 class="foot-title">Your <em>move.</em></h2>
+      <div class="foot-cta">
+        <a class="btn btn-solid" href="#set" data-magnetic>Reserve a set</a>
+        <a class="btn btn-ghost" href="#salon" data-magnetic>Visit the salon</a>
+      </div>
+      <div class="foot-cols">
+        <p><span class="k">Salon</span>Rue Saint-Honoré, Paris 1<sup>er</sup><br>Tuesday to Sunday, 18:00 — late</p>
+        <p><span class="k">Atelier</span>Via Carriona, Carrara<br>Visits by appointment</p>
+        <p><span class="k">Write</span>salon@gambit.example<br>+33 1 40 00 18 51</p>
+      </div>
+      <p class="fine">© 2026 Gambit. Carved in Carrara, played in Paris. The Immortal Game: Anderssen – Kieseritzky, London 1851, 1–0.</p>
+    </footer>
+  </main>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

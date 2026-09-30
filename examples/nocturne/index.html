@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nocturne No. 9 — Iris &amp; Oud, extrait de parfum</title>
+  <meta name="description" content="Nocturne No. 9, an extrait de parfum from a small house in Grasse. Iris, bergamot, vanilla, oud. Poured by hand since 1911.">
+  <meta name="theme-color" content="#050404">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="ld-flacon" aria-hidden="true">
+      <svg viewBox="0 0 80 120">
+        <defs><clipPath id="ldClip"><path d="M12 44h56l4 4v60l-4 4H12l-4-4V48z"/></clipPath></defs>
+        <rect class="ld-liquid" x="0" y="112" width="80" height="0" clip-path="url(#ldClip)"/>
+        <path class="ld-glass" d="M12 44h56l4 4v60l-4 4H12l-4-4V48z M33 44v-8h14v8"/>
+        <path class="ld-cap" d="M31 36h18l3-10-4-9H32l-4 9z"/>
+      </svg>
+    </div>
+    <p class="ld-word">Nocturne</p>
+    <p class="ld-line">Decanting <span class="ld-pct">0</span>%</p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Nocturne, home">
+      <svg viewBox="0 0 16 22" aria-hidden="true"><path d="M3 9h10l1 1v10l-1 1H3l-1-1V10z M6.5 9V7h3v2 M6 7h4l.8-2.6L9.8 2H6.2l-1 2.4z" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+      <span>Nocturne</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#bergamot">The notes</a>
+      <a href="#house">The house</a>
+      <a href="#shop">Discovery set</a>
+    </nav>
+    <div class="nav-right">
+      <span class="bag" aria-live="polite">Bag <b class="bag-n">0</b></span>
+      <a class="btn btn-ghost" href="#shop" data-magnetic>Shop No. 9</a>
+    </div>
+  </header>
+
+  <aside class="gauge" aria-label="Maceration: notes poured into the flacon">
+    <p class="gauge-title">No. 9<br><em>maceration</em></p>
+    <div class="gauge-bar"><i class="gauge-fill"></i>
+      <span class="gauge-tick" style="--y:.57" data-n="0">Bergamot</span>
+      <span class="gauge-tick" style="--y:.69" data-n="1">Iris</span>
+      <span class="gauge-tick" style="--y:.81" data-n="2">Vanilla</span>
+      <span class="gauge-tick" style="--y:.93" data-n="3">Oud</span>
+    </div>
+    <p class="gauge-pct"><span class="gauge-v">0</span>%</p>
+  </aside>
+
+  <main id="top">
+    <section class="hero" data-stop="0">
+      <h1 class="sr">Nocturne No. 9 — iris, bergamot, vanilla, oud.</h1>
+      <p class="hero-eyebrow"><span>Extrait de parfum</span><span class="dot"></span><span>Maison Nocturne, Grasse — since 1911</span></p>
+      <div class="hero-foot">
+        <div class="hero-copy">
+          <p class="hero-line">No. 9 — <em>iris, bergamot, vanilla, oud.</em></p>
+          <p class="hero-sub">Four raw materials, eleven months in a cold cellar, one heavy flacon poured by hand. 32% concentration: it sits on the skin until morning.</p>
+          <div class="hero-cta">
+            <a class="btn btn-solid" href="#shop" data-magnetic>50 ml — €290</a>
+            <a class="btn btn-text" href="#bergamot">Meet the notes</a>
+          </div>
+        </div>
+        <div class="hint" aria-hidden="true">
+          <span class="hint-ico"><i></i></span>
+          <span><b>Drag the flacon.</b><br>Tilt it — the perfume follows.</span>
+        </div>
+      </div>
+      <p class="scroll-cue" aria-hidden="true">Scroll — the notes arrive</p>
+    </section>
+
+    <section class="note" id="bergamot" data-stop="1" data-side="left">
+      <div class="note-pin">
+        <article class="note-card">
+          <p class="note-kicker"><span class="roman">I</span><span>Top note</span><span class="rule"></span><span>the first fifteen minutes</span></p>
+          <h2>Bergamot <em>di Calabria</em></h2>
+          <p class="latin">Citrus bergamia · Reggio Calabria, Italy</p>
+          <p class="note-body">The first thing you notice, and the first thing to leave. We buy green December fruit from a single grove above the Strait of Messina and press the rind cold, so the oil keeps its bitterness — a flash of light before the dark comes in.</p>
+          <dl class="facts">
+            <div><dt>Share of formula</dt><dd>11%</dd></div>
+            <div><dt>Harvest</dt><dd>December, unripe</dd></div>
+            <div><dt>Extraction</dt><dd>Cold-pressed rind</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="note" id="iris" data-stop="2" data-side="right">
+      <div class="note-pin">
+        <article class="note-card">
+          <p class="note-kicker"><span class="roman">II</span><span>Heart note</span><span class="rule"></span><span>hour one to five</span></p>
+          <h2>Iris <em>pallida</em></h2>
+          <p class="latin">Orris root · the hills above Florence</p>
+          <p class="note-body">Orris is not the flower but the root. The rhizomes are lifted by hand, peeled, and left to dry in the dark for three years before they give anything up. What comes out is cool and powdery — violets, suede, rain on a warm stone. It is the most expensive thing we own.</p>
+          <dl class="facts">
+            <div><dt>Resting time</dt><dd>3 years</dd></div>
+            <div><dt>Yield</dt><dd>2 kg butter / tonne</dd></div>
+            <div><dt>Share of formula</dt><dd>24%</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="note" id="vanilla" data-stop="3" data-side="left">
+      <div class="note-pin">
+        <article class="note-card">
+          <p class="note-kicker"><span class="roman">III</span><span>Base note</span><span class="rule"></span><span>arrives late, stays close</span></p>
+          <h2>Vanilla <em>Bourbon</em></h2>
+          <p class="latin">Vanilla planifolia · Sava coast, Madagascar</p>
+          <p class="note-body">Pods sweated and sun-dried for six months, until the vanillin blooms on the skin in tiny crystals. We steep them in our own alcohol for a full year — the slow way — so the sweetness never shouts. It is warmth left in a coat.</p>
+          <dl class="facts">
+            <div><dt>Curing</dt><dd>6 months</dd></div>
+            <div><dt>Tincture</dt><dd>12 months</dd></div>
+            <div><dt>Pods per litre</dt><dd>140</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="note" id="oud" data-stop="4" data-side="right">
+      <div class="note-pin">
+        <article class="note-card">
+          <p class="note-kicker"><span class="roman">IV</span><span>Base note</span><span class="rule"></span><span>until morning</span></p>
+          <h2>Oud <em>of Assam</em></h2>
+          <p class="latin">Aquilaria agallocha · resin wood, Hojai</p>
+          <p class="note-body">Agarwood from one plantation, where the resin took fifteen years to form. Smoke, leather, the inside of an old violin case. There is less than half a percent of it in every flacon — the heaviest half-percent in perfumery — and it holds the other three in place all night.</p>
+          <dl class="facts">
+            <div><dt>Resin age</dt><dd>15 years</dd></div>
+            <div><dt>Distillation</dt><dd>9 days, copper</dd></div>
+            <div><dt>Share of formula</dt><dd>0.4%</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="house" id="house" data-stop="5">
+      <div class="house-inner">
+        <p class="kicker">The house</p>
+        <h2>Grasse, <em>since 1911.</em></h2>
+        <p class="lede">Nocturne began as a shop on the Rue de l’Oratoire, where Honorine Vey sold violet pastilles by day and blended for three private clients by night. Four generations later we are still eleven people, one copper still, and a cellar that holds fourteen degrees all year.</p>
+        <p class="lede lede-2">Every flacon of No. 9 is macerated for eleven months, chilled, filtered through paper, and poured by the same two hands. The number on the base is written in ink. So is the name of the person who poured it.</p>
+        <div class="stats">
+          <div><b>1911</b><span>The first night blend, for a singer at the Opéra de Monte-Carlo</span></div>
+          <div><b>2,400</b><span>Flacons a year, each one numbered by hand</span></div>
+          <div><b>11</b><span>Months from maceration to bottle</span></div>
+          <div><b>1</b><span>Perfumer. Her name is on the box.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop" id="shop" data-stop="6">
+      <div class="shop-inner">
+        <p class="kicker">Wear the night</p>
+        <h2>Begin with <em>a drop.</em></h2>
+        <div class="products">
+          <article class="product">
+            <header><h3>The Discovery Set</h3><p class="price">€38</p></header>
+            <p>The four raw notes alone — bergamot, iris, vanilla, oud — in 2 ml vials, and 5 ml of No. 9 where they meet. Credited in full against your first flacon.</p>
+            <ul><li>4 × 2 ml single-note accords</li><li>5 ml No. 9 extrait</li><li>A card that explains the pyramid</li></ul>
+            <button class="btn btn-ghost add" data-item="Discovery Set" data-magnetic>Add to bag</button>
+          </article>
+          <article class="product product-lit">
+            <header><h3>No. 9 Extrait, 50 ml</h3><p class="price">€290</p></header>
+            <p>Cut-crystal flacon, hand-gilt stopper set with onyx. Numbered and signed. Refills of the perfume alone are €210, forever.</p>
+            <ul><li>32% concentration · 10–12 h on skin</li><li>Complimentary engraving</li><li>Shipped from Grasse within 48 hours</li></ul>
+            <button class="btn btn-solid add" data-item="No. 9 Extrait, 50 ml" data-magnetic>Add to bag — €290</button>
+          </article>
+        </div>
+        <p class="fine">Returns within 30 days, even opened. We would rather you love it.</p>
+      </div>
+    </section>
+
+    <footer class="foot" id="visit">
+      <div class="foot-inner">
+        <p class="foot-word" aria-hidden="true">Nocturne</p>
+        <div class="foot-cols">
+          <p>Maison Nocturne<br>14 Rue de l’Oratoire<br>06130 Grasse, France</p>
+          <p>Boutique Tuesday – Saturday, 11:00 – 19:00.<br>Open until midnight on every full moon.</p>
+          <nav aria-label="Footer"><a href="#bergamot">The notes</a><a href="#house">The house</a><a href="#shop">Discovery set</a><a href="#top">Care &amp; refills</a></nav>
+        </div>
+        <p class="legal"><span>© 2026 Maison Nocturne</span><span>No. 9 contains natural materials; colour may vary with each harvest.</span></p>
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast" role="status"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

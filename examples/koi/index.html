@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Still Water — A seven-room ryokan around a koi pond, Kyoto</title>
+  <meta name="description" content="Seven rooms. One pond. No clocks. A ryokan in Higashiyama, Kyoto, built around a two-hundred-year-old koi pond.">
+  <meta name="theme-color" content="#0b1511">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <svg class="enso" viewBox="0 0 200 200" aria-hidden="true">
+      <circle class="enso-track" cx="100" cy="100" r="78"/>
+      <circle class="enso-ink" cx="100" cy="100" r="78" pathLength="100"/>
+    </svg>
+    <p class="loader-kanji" aria-hidden="true">静</p>
+    <p class="loader-line">Filling the pond <span class="loader-pct">0</span>%</p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Still Water, home">
+      <span class="seal" aria-hidden="true">静水</span>
+      <span class="brand-name">Still Water</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#rooms">Rooms</a>
+      <a href="#kaiseki">Kaiseki &amp; tea</a>
+      <a href="#seasons">Seasons</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" type="button" aria-pressed="true" aria-label="Water sounds">
+        <span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i></span><span class="sound-label">Sound</span>
+      </button>
+      <a class="btn btn-ink" href="#reserve" data-magnetic>Reserve</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" data-key="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Ryokan · Higashiyama, Kyoto<span class="hide-m"> · Since 1824</span></p>
+        <h1 class="title">
+          <span class="line">Seven rooms.</span>
+          <span class="line">One pond.</span>
+          <span class="line"><em>No clocks.</em></span>
+        </h1>
+        <p class="sub">A seven-room inn built around a koi pond fed by the same mountain spring for two hundred years. Stay long enough and you stop counting the hours, and start counting the fish.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#reserve" data-magnetic>Reserve a room</a>
+          <a class="btn btn-ghost" href="#rooms" data-magnetic>See the rooms</a>
+        </div>
+      </div>
+      <div class="hint" aria-hidden="true">
+        <span class="hint-ring"><i></i><i></i></span>
+        <ul>
+          <li class="hint-draw"><b>Draw</b> a finger through the water</li>
+          <li class="hint-feed"><b>Click</b> to scatter food for the koi</li>
+          <li class="hint-still"><b>Hold still</b> — they come to you</li>
+        </ul>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span>Drift across the pond</span><i></i></div>
+    </section>
+
+    <!-- Rooms -->
+    <section class="rooms" id="rooms">
+      <div class="pin">
+        <div class="paper rooms-paper">
+          <header class="sec-head">
+            <p class="eyebrow">The rooms <span class="jp">部屋</span></p>
+            <h2>Every room opens onto the water.</h2>
+            <p class="lede">Seven rooms in three kinds, each with its own veranda over the pond. No televisions, no clocks. The light tells you the time, and the koi tell you when it is morning.</p>
+          </header>
+          <div class="room-deck">
+            <article class="room is-on" data-room="0">
+              <figure><img src="../../img/koi/room-moss.webp" alt="A tatami room with shoji open onto a moss garden and the edge of the pond" loading="lazy"></figure>
+              <div class="room-body">
+                <p class="room-kind"><span class="jp-big" aria-hidden="true">苔</span><span>Koke · three rooms</span></p>
+                <h3>Moss</h3>
+                <p>Ground floor on the north bank, where the cushion moss runs right up to the cedar boards of the veranda. Tatami for two, a deep hinoki tub, shoji that slide away entirely. The quietest rooms in the house.</p>
+                <p class="room-meta"><span>28 m²</span><span>2 guests</span><span>Garden bath</span></p>
+                <p class="price">from <b>¥68,000</b> / night, dinner &amp; breakfast</p>
+              </div>
+            </article>
+            <article class="room" data-room="1">
+              <figure><img src="../../img/koi/room-maple.webp" alt="A ryokan room with a cedar tub and a red maple framed by the window" loading="lazy"></figure>
+              <div class="room-body">
+                <p class="room-kind"><span class="jp-big" aria-hidden="true">紅葉</span><span>Momiji · two rooms</span></p>
+                <h3>Maple</h3>
+                <p>Under the hundred-and-forty-year-old momiji. In the third week of November its leaves fall onto the water outside your window, and for nine days the pond is more vermilion than green.</p>
+                <p class="room-meta"><span>34 m²</span><span>2–3 guests</span><span>Cedar soaking tub</span></p>
+                <p class="price">from <b>¥84,000</b> / night, dinner &amp; breakfast</p>
+              </div>
+            </article>
+            <article class="room" data-room="2">
+              <figure><img src="../../img/koi/room-moon.webp" alt="An upper room at night opening onto a moon-viewing deck over the pond" loading="lazy"></figure>
+              <div class="room-body">
+                <p class="room-kind"><span class="jp-big" aria-hidden="true">月</span><span>Tsuki · two rooms</span></p>
+                <h3>Moon</h3>
+                <p>The upper floor, with a moon-viewing deck built out over the pond. On clear nights the moon sits in the black water directly beneath you, and the stone lantern is lit at dusk.</p>
+                <p class="room-meta"><span>41 m²</span><span>2 guests</span><span>Private tsukimi deck</span></p>
+                <p class="price">from <b>¥112,000</b> / night, dinner &amp; breakfast</p>
+              </div>
+            </article>
+          </div>
+          <ol class="room-dots" aria-hidden="true"><li class="is-on">Moss</li><li>Maple</li><li>Moon</li></ol>
+        </div>
+      </div>
+      <div class="steps"><div class="step" data-key="moss"></div><div class="step" data-key="maple"></div><div class="step" data-key="moon"></div></div>
+    </section>
+
+    <!-- Kaiseki & tea -->
+    <section class="kaiseki" id="kaiseki" data-key="kaiseki">
+      <p class="vert vert-kaiseki" aria-hidden="true">懐石と茶</p>
+      <div class="paper paper-dark kaiseki-paper">
+        <p class="eyebrow">Kaiseki &amp; tea <span class="jp">懐石</span></p>
+        <h2>Dinner arrives in nine courses, and in no hurry.</h2>
+        <p class="lede">Chef Aoki Ren has cooked in this kitchen for twenty-two years. The old calendar has seventy-two seasons of five days each, and his menu follows every one of them.</p>
+        <ol class="menu">
+          <li><span class="jp">先付</span><b>Sakizuke</b><span>Sesame tofu, fresh wasabi, one chrysanthemum petal</span></li>
+          <li><span class="jp">八寸</span><b>Hassun</b><span>The fortnight on a cedar tray: ginkgo, persimmon, grilled sweetfish</span></li>
+          <li><span class="jp">焼物</span><b>Yakimono</b><span>Spanish mackerel over binchō charcoal, yuzu miso</span></li>
+          <li><span class="jp">止椀</span><b>Tomewan</b><span>Red miso with clams from Lake Biwa, rice from the Tamba hills</span></li>
+        </ol>
+        <div class="tea">
+          <p class="tea-time">06:10</p>
+          <p><b>Tea at first light.</b> Before breakfast the tea master whisks matcha on the flat stone beside the lantern. Guests sit on the moss in borrowed haori. The koi come to the edge to see who is up.</p>
+        </div>
+        <div class="stats">
+          <div><b>9</b><span>courses at dinner</span></div>
+          <div><b>72</b><span>micro-seasons a year</span></div>
+          <div><b>1</b><span>seating, at dusk</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seasons -->
+    <section class="seasons" id="seasons">
+      <div class="pin">
+        <div class="season-kanji" aria-hidden="true"><span class="is-on">春</span><span>夏</span><span>秋</span><span>冬</span></div>
+        <div class="paper season-paper">
+          <p class="eyebrow">The seasons at Still Water <span class="jp">四季</span></p>
+          <h2>The same pond, four times a year.</h2>
+          <ol class="season-list">
+            <li class="is-on"><p class="s-name"><span>Spring</span><em>March – April</em></p><p>Cherry petals drift over the wall from the temple next door and gather in the corners of the pond. The koi wake up hungry.</p></li>
+            <li><p class="s-name"><span>Summer</span><em>June – August</em></p><p>The lotus open at dawn and close by noon. Fireflies over the water in the first week of July, and the veranda doors stay open all night.</p></li>
+            <li><p class="s-name"><span>Autumn</span><em>October – November</em></p><p>The maple turns. Nine days when the pond is more red than green; most guests book them a year ahead.</p></li>
+            <li><p class="s-name"><span>Winter</span><em>December – February</em></p><p>Snow on the lantern’s roof. The koi rest deep and slow under the ice-cold spring, and the house is at its most silent.</p></li>
+          </ol>
+        </div>
+      </div>
+      <div class="steps"><div class="step" data-key="spring"></div><div class="step" data-key="summer"></div><div class="step" data-key="autumn"></div><div class="step" data-key="winter"></div></div>
+    </section>
+
+    <!-- Reserve -->
+    <section class="reserve" id="reserve" data-key="reserve">
+      <div class="paper reserve-paper">
+        <p class="eyebrow">Reservations <span class="jp">予約</span></p>
+        <h2>The pond keeps its own time. <em>Come and keep it with us.</em></h2>
+        <form class="booking" novalidate>
+          <label><span>Arrival</span><input type="date" name="arrival" value="2026-11-18"></label>
+          <label><span>Nights</span>
+            <select name="nights"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>7</option></select></label>
+          <label><span>Guests</span>
+            <select name="guests"><option>1</option><option selected>2</option><option>3</option></select></label>
+          <label><span>Room</span>
+            <select name="room"><option>Moss</option><option selected>Maple</option><option>Moon</option></select></label>
+          <button class="btn btn-solid" type="submit" data-magnetic>Request a stay</button>
+        </form>
+        <p class="fine">We answer every request by hand within a day. Nothing is charged until we write back to confirm.</p>
+      </div>
+    </section>
+
+    <footer class="foot" data-key="foot">
+      <div class="foot-inner">
+        <p class="foot-mark"><span class="jp">静水</span> Still Water</p>
+        <div class="foot-cols">
+          <p>12 Shimokawara-chō<br>Higashiyama-ku, Kyoto 605-0825<br>Five minutes’ walk from Kōdai-ji</p>
+          <p>+81 75 555 0142<br>stay@stillwater.kyoto<br>Check-in 15:00 · Check-out 11:00</p>
+          <p>There are no clocks in the rooms.<br>We will knock when dinner is ready.</p>
+          <nav aria-label="Footer"><a href="#rooms">Rooms</a><a href="#kaiseki">Kaiseki</a><a href="#seasons">Seasons</a><a href="#reserve">Reserve</a></nav>
+        </div>
+        <p class="fine foot-fine">© 2026 Still Water Ryokan · The koi are not for sale; please do not ask.</p>
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast" role="status"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

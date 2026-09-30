@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Velocity Lab — VX-1 Carbon</title>
+  <meta name="description" content="VX-1 Carbon. 186 grams of unfair advantage. Run the lens over it and see the plate, the foam and every dimension inside.">
+  <meta name="theme-color" content="#f2f3f5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <!-- Lens chrome: bezel ticks, arc label, crosshair. Positioned from JS to match the shader lens. -->
+  <div class="lens-ui" aria-hidden="true">
+    <svg viewBox="-120 -120 240 240">
+      <defs><path id="lens-arc" d="M 0,-114 A 114,114 0 1,1 -0.01,-114"/></defs>
+      <g class="lens-ticks"></g>
+      <text class="lens-arc"><textPath href="#lens-arc" startOffset="0">X-RAY · MODE 01/03 · VX-1 CARBON · PLATE 1.1 MM CFRP · FOAM 38 MM · </textPath></text>
+      <g class="lens-cross"><path d="M-9 0h-9M9 0h9M0 -9v-9M0 9v9"/><circle r="1.4"/></g>
+    </svg>
+    <div class="lens-tag"><span class="lens-tag-n">01</span><b class="lens-tag-m">X-RAY</b></div>
+    <div class="lens-coord">X 000.0 · Y 00.0 MM</div>
+  </div>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-top mono"><span>Velocity Lab</span><span>Lab file 07 — VX-1 Carbon</span><span>Optical bench 3</span></div>
+    <i class="loader-h"></i><i class="loader-v"></i>
+    <div class="loader-dial">
+      <svg viewBox="-60 -60 120 120" aria-hidden="true"><g class="loader-ticks"></g><circle class="loader-ring" r="40"/></svg>
+      <span class="loader-pct">000</span>
+    </div>
+    <p class="loader-line mono">Calibrating lens <span class="loader-step">— optics</span></p>
+    <div class="loader-bot mono"><span>186 g</span><span>38 mm stack</span><span>8 mm drop</span><span>1.1 mm CFRP</span></div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Velocity Lab home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 17.5 18.5 6.5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="2.2" fill="currentColor"/></svg>
+      <span>Velocity<em>Lab</em></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#lens">Lens</a>
+      <a href="#plate">Plate</a>
+      <a href="#foam">Foam</a>
+      <a href="#upper">Upper</a>
+      <a href="#colour">Colourways</a>
+    </nav>
+    <a class="btn btn-ink" href="#drop" data-magnetic><span>Drop list</span><i class="dot"></i></a>
+  </header>
+
+  <!-- Lab HUD -->
+  <div class="hud" aria-hidden="true">
+    <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+    <div class="ruler"><div class="ruler-mark"><span class="ruler-val mono">000</span></div></div>
+    <div class="chapter mono"><span class="chapter-n">00</span><span class="chapter-name">Launch file</span></div>
+  </div>
+
+  <svg class="leaders" aria-hidden="true"></svg>
+  <div class="callouts" aria-hidden="true"></div>
+
+  <div class="console" role="toolbar" aria-label="Lens mode">
+    <button class="mode is-on" data-mode="0" data-cursor="link"><span class="mono">01</span>X-Ray</button>
+    <button class="mode" data-mode="1" data-cursor="link"><span class="mono">02</span>Thermal</button>
+    <button class="mode" data-mode="2" data-cursor="link"><span class="mono">03</span>CAD</button>
+    <p class="console-hint mono"><span class="k-desk">Move to scan · Click to switch · Hold to magnify</span><span class="k-touch">Drag to scan · Hold to magnify</span></p>
+  </div>
+
+  <main id="top">
+    <section class="s hero" data-state="hero">
+      <div class="hero-copy" data-nolens>
+        <p class="eyebrow mono"><span class="tag">Lab file 07</span> Carbon race trainer — Release 16.10.2026</p>
+        <h1 class="title" aria-label="VX-1 Carbon."><span class="t1">VX-1</span><span class="t2">Carbon.</span></h1>
+        <p class="sub">186 grams of unfair advantage.</p>
+      </div>
+      <dl class="specs mono" data-nolens>
+        <div><dt>Weight</dt><dd>186<small>g</small></dd></div>
+        <div><dt>Stack</dt><dd>38<small>mm</small></dd></div>
+        <div><dt>Drop</dt><dd>8<small>mm</small></dd></div>
+        <div><dt>Plate</dt><dd>1.1<small>mm</small></dd></div>
+      </dl>
+      <p class="hero-note" data-nolens>A full-length carbon plate, thirty-eight millimetres of nitrogen-set foam and an upper you can see daylight through. We built a lens so you can check our work.</p>
+    </section>
+
+    <section class="s lens-s" id="lens" data-state="lens">
+      <div class="col col-r" data-nolens>
+        <p class="eyebrow mono"><span class="tag">01</span> The lens</p>
+        <h2>Every shoe says it’s fast. <em>Ours lets you look.</em></h2>
+        <p class="lede">Outside the glass it’s a product shot. Inside, it’s the lab file: what the plate does, where the heat goes, and every dimension we argued about for fourteen months.</p>
+        <ol class="modes">
+          <li><button data-mode="0" data-cursor="link"><span class="mono">01 — X-Ray</span><b>The shell turns to glass.</b><em>The plate and the foam lattice light up exactly where they sit.</em></button></li>
+          <li><button data-mode="1" data-cursor="link"><span class="mono">02 — Thermal</span><b>1,200 strides of pressure data.</b><em>Painted back onto the sole. Watch a footstrike roll heel to toe.</em></button></li>
+          <li><button data-mode="2" data-cursor="link"><span class="mono">03 — CAD</span><b>The master drawing.</b><em>Clean edges, true dimensions, no marketing.</em></button></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="s tech" id="plate" data-state="plate">
+      <div class="col col-l" data-nolens>
+        <p class="eyebrow mono"><span class="tag">02</span> Plate</p>
+        <h2>A spoon, <em>not a spring.</em></h2>
+        <p class="lede">1.1 mm of unidirectional carbon, laid in a scooped curve. It stiffens the forefoot so your toes stop spending energy on flexing, then rolls you forward off a 4.2° rocker. It doesn’t bounce. It just refuses to waste anything.</p>
+        <div class="stat"><b>8<small>mm</small></b><span class="mono">Heel-to-toe drop</span></div>
+        <ul class="minor mono"><li><b>1.1 mm</b> plate thickness</li><li><b>4.2°</b> toe spring</li><li><b>62%</b> rocker apex</li></ul>
+      </div>
+    </section>
+
+    <section class="s tech" id="foam" data-state="foam">
+      <div class="col col-r" data-nolens>
+        <p class="eyebrow mono"><span class="tag">03</span> Foam</p>
+        <h2>Thirty-eight millimetres <em>of almost nothing.</em></h2>
+        <p class="lede">VX Foam is a supercritical PEBA, expanded with nitrogen until it is 81% air. Under the thermal lens you can watch it take a footstrike, spread the load across the heel and hand it forward.</p>
+        <div class="stat"><b>38<small>mm</small></b><span class="mono">Heel stack height</span></div>
+        <ul class="minor mono"><li><b>87%</b> energy return</li><li><b>0.09</b> g/cm³ density</li><li><b>30 mm</b> forefoot</li></ul>
+      </div>
+    </section>
+
+    <section class="s tech" id="upper" data-state="upper">
+      <div class="col col-l" data-nolens>
+        <p class="eyebrow mono"><span class="tag">04</span> Upper</p>
+        <h2>Built from one thread <em>and an argument.</em></h2>
+        <p class="lede">A single-layer engineered mesh, knitted in one piece with 212 zones of different density — open where your foot runs hot, closed where it needs holding. The ripstop cage over the midfoot weighs less than the laces.</p>
+        <div class="stat"><b>186<small>g</small></b><span class="mono">Per shoe, US 9</span></div>
+        <ul class="minor mono"><li><b>212</b> knit zones</li><li><b>0</b> stitched seams</li><li><b>11 g</b> ripstop cage</li></ul>
+      </div>
+    </section>
+
+    <section class="s colour" id="colour" data-state="colour">
+      <div class="col col-l" data-nolens>
+        <p class="eyebrow mono"><span class="tag">05</span> Colourways</p>
+        <h2>Two ways <em>to be early.</em></h2>
+        <p class="lede">Same plate, same foam, same 186 grams. Pick the one you want to be photographed in.</p>
+      <div class="swatches">
+        <button class="swatch is-on" data-way="0" data-cursor="link">
+          <i class="chip chip-w"></i>
+          <span class="mono">VX-1 / 01</span><b>Lab White / Solar</b>
+          <em>Clinical white knit, solar-orange hardware. Photographs like it’s already on the podium.</em>
+        </button>
+        <button class="swatch" data-way="1" data-cursor="link">
+          <i class="chip chip-b"></i>
+          <span class="mono">VX-1 / 02</span><b>Carbon / Volt</b>
+          <em>Black on graphite with volt laces. For people who’d rather be seen at the finish than the start.</em>
+        </button>
+        <p class="swatch-hint mono">Select a colourway — watch it re-print</p>
+      </div>
+      </div>
+    </section>
+
+    <section class="s drop" id="drop" data-state="drop">
+      <div class="drop-inner" data-nolens>
+        <p class="eyebrow mono"><span class="tag">06</span> The drop — Friday 16.10.2026, 09:00 Zürich</p>
+        <h2 class="drop-title">3,000 pairs. <em>One per runner.</em></h2>
+        <div class="count" role="timer" aria-live="off">
+          <div><b data-u="d">00</b><span class="mono">Days</span></div>
+          <div><b data-u="h">00</b><span class="mono">Hours</span></div>
+          <div><b data-u="m">00</b><span class="mono">Min</span></div>
+          <div><b data-u="s">00</b><span class="mono">Sec</span></div>
+        </div>
+        <form class="join" onsubmit="event.preventDefault(); this.classList.add('done');">
+          <label class="mono" for="email">Drop list</label>
+          <input id="email" type="email" placeholder="you@yourclub.run" autocomplete="email" required>
+          <button class="btn btn-volt" type="submit" data-magnetic>Join the list — €240</button>
+          <p class="join-ok mono">You’re on the list. Bring a race result.</p>
+        </form>
+        <p class="drop-note mono">1,500 per colourway · No bots — every entry is checked against a race result from the last 12 months</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="footer" data-nolens>
+    <div class="foot-inner">
+      <h2 class="foot-title">Run what you can <em>see through.</em></h2>
+      <div class="foot-cols">
+        <div><p class="mono k">Velocity Lab AG</p><p>Werkstrasse 14<br>8005 Zürich</p></div>
+        <div><p class="mono k">Lab hours</p><p>Mon–Fri 07:00–19:00<br>Wear-test runs Sat 06:30</p></div>
+        <div><p class="mono k">Press &amp; teams</p><p>lab@velocitylab.example<br>Athlete programme — invite only</p></div>
+        <a class="btn btn-ink" href="#drop" data-magnetic>Join the drop list</a>
+      </div>
+      <p class="legal mono"><span>© 2026 Velocity Lab — a fictional brand</span><span>VX-1 Carbon · Lab file 07 · All measurements US 9</span></p>
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

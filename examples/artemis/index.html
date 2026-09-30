@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Artemis — Seven days at the lunar south pole</title>
+  <meta name="description" content="Artemis Surface Stays: a seven-day stay at an outpost on the rim of Shackleton crater. Twelve guests a season. $4.2M, all-inclusive.">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M16 5a11 11 0 0 0 0 22 7.5 11 0 0 1 0-22Z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-frame">
+      <p class="rd loader-top"><span>Artemis · Powered descent</span><span>LM-7 “Tranquil”</span></p>
+      <div class="loader-alt"><span class="loader-num">15,000</span><em>m</em></div>
+      <div class="loader-bar"><i></i></div>
+      <p class="rd loader-bottom"><span class="loader-call">Braking phase</span><span><span class="loader-pct">0</span>%</span></p>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Artemis home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M16 5.5a10.5 10.5 0 0 0 0 21 7.2 10.5 0 0 1 0-21Z" fill="currentColor"/><path d="M2 22.5h28" stroke="currentColor" stroke-width="1.4"/></svg>
+      <span>Artemis</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#walk" data-jump="walk">The walk</a>
+      <a href="#outpost" data-jump="outpost">Outpost</a>
+      <a href="#days" data-jump="days">Seven days</a>
+      <a href="#training" data-jump="training">Training</a>
+      <a href="#price" data-jump="price">Price</a>
+    </nav>
+    <a class="btn btn-solid" href="#reserve" data-magnetic>Reserve a seat</a>
+  </header>
+
+  <!-- mission readouts, pinned to the frame like film-edge data -->
+  <div class="hud" aria-hidden="true">
+    <div class="hud-tl rd"><span>89.94°S&nbsp;&nbsp;0.12°E</span><span>Shackleton rim · site A</span></div>
+    <div class="hud-tr rd"><span class="hud-sun">Sun az 218.0° · el 7.2°</span><span>Earth el 11.4°</span></div>
+    <div class="hud-bl rd"><span>MET <b class="hud-met">000:00:00:00</b></span></div>
+    <div class="hud-br rd"><span class="hud-frame">Frame 0001</span><span>AS-31 · 70mm</span></div>
+    <i class="hud-c hud-c1"></i><i class="hud-c hud-c2"></i><i class="hud-c hud-c3"></i><i class="hud-c hud-c4"></i>
+  </div>
+
+  <div class="telemetry rd" aria-hidden="true">
+    <div><em>Distance</em><b class="tm-dist">0.0</b><small>m</small></div>
+    <div><em>Steps</em><b class="tm-steps">0</b></div>
+    <div><em>Gait</em><b class="tm-gait">Standing</b></div>
+    <div><em>Prints left</em><b class="tm-prints">0</b></div>
+    <div class="tm-rate"><em>Playback</em><b class="tm-rate-v">×1.0</b></div>
+  </div>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <p class="eyebrow rd">Artemis Surface Stays <span>—</span> Season 2031 <span>—</span> 12 seats</p>
+        <h1 id="hero-title" class="hero-title">
+          <span class="ln"><span>One small step,</span></span>
+          <span class="ln"><span>repeated <em>40,000</em> times.</span></span>
+        </h1>
+        <p class="hero-sub">Seven days at an outpost on the rim of Shackleton crater, where the Sun never sets and nothing you leave behind ever blows away. Bring good boots. We supply the rest.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#reserve" data-magnetic>Reserve a seat</a>
+          <a class="btn btn-ghost" href="#days" data-jump="days" data-magnetic>See the itinerary</a>
+        </div>
+      </div>
+      <div class="scroll-hint rd" aria-hidden="true">
+        <span class="boot"><i></i><i></i></span>
+        <span><b>Scroll to walk</b> · stop to rest · scroll back to retrace</span>
+      </div>
+    </section>
+
+    <section class="walk" id="walk" aria-label="The walk">
+      <div class="walk-sticky">
+        <p class="sec-tag rd"><b>01</b> The walk <span class="sec-sub">EVA 1 · rim traverse · 38 m · he walks as fast as you scroll</span></p>
+        <article class="cap cap-a" data-from="0.5" data-to="8">
+          <p class="rd">00 m · Regolith</p>
+          <h3>It isn’t sand.</h3>
+          <p>It’s volcanic glass, shattered by four billion years of impacts and never weathered smooth. It holds a bootprint the way plaster holds a hand.</p>
+        </article>
+        <article class="cap cap-b" data-from="8.5" data-to="15">
+          <p class="rd">09 m · 1.62 m/s²</p>
+          <h3>You weigh a sixth. Your mass doesn’t.</h3>
+          <p>Starting is effortless. Stopping takes planning. By the second hour you stop walking and start to lope.</p>
+        </article>
+        <article class="cap cap-c" data-from="15.5" data-to="23">
+          <p class="rd">17 m · No air</p>
+          <h3>Every grain flies the same arc.</h3>
+          <p>With nothing to slow it, kicked dust rises on a perfect parabola and lands at the same instant as the pebble next to it. No cloud. No drift. Just geometry.</p>
+        </article>
+        <article class="cap cap-d" data-from="23.5" data-to="30.5">
+          <p class="rd">25 m · Look back</p>
+          <h3>These will outlast the pyramids.</h3>
+          <p>No wind, no rain, no frost. Your prints will stay exactly like this until a micrometeorite finds them, in about ten million years.</p>
+        </article>
+        <article class="cap cap-e" data-from="31" data-to="40">
+          <p class="rd">36 m · Home</p>
+          <h3>The gold one is yours.</h3>
+          <p>A guest walks thirty-one kilometres in a week, about forty thousand steps. Your suit counts every one of them.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="outpost" id="outpost" aria-labelledby="outpost-title">
+      <div class="sticky">
+        <div class="panel panel-left">
+          <p class="sec-tag rd"><b>02</b> The outpost</p>
+          <h2 id="outpost-title">Built on a ridge that almost never sees night.</h2>
+          <p class="lede">Shackleton Rim is one of the Moon’s peaks of near-eternal light. The Sun circles the horizon instead of setting, and our arrays turn to follow it. Two hundred metres away, the crater floor hasn’t seen sunlight in two billion years.</p>
+          <ul class="specs rd">
+            <li><b>38 m³</b><span>pressurised, per guest pair</span></li>
+            <li><b>−173 °C</b><span>in the crater, 400 m below</span></li>
+            <li><b>1.3 s</b><span>to call home, each way</span></li>
+          </ul>
+          <figure class="plate">
+            <img src="/img/artemis/habitat.webp" alt="Four curtained berths inside the habitat, with a porthole showing Earth above the lunar horizon" loading="lazy" width="1000" height="1250">
+            <figcaption class="rd">Hab 2, berth deck. The window faces Earth.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="days" id="days" aria-labelledby="days-title">
+      <div class="sticky">
+        <div class="panel panel-left">
+          <p class="sec-tag rd"><b>03</b> The seven days</p>
+          <h2 id="days-title">At the pole, the Sun doesn’t set. It walks around you.</h2>
+          <p class="lede small">Scroll through the week. The Sun travels eighty-five degrees around the horizon, and every shadow on the rim turns with it like the hand of a clock.</p>
+          <ol class="itinerary">
+            <li data-day="0"><span class="rd">Day 1</span><div><h3>Touchdown</h3><p>Twelve minutes of powered descent from lunar orbit. Suit checks, then your first step onto the rim.</p></div></li>
+            <li data-day="1"><span class="rd">Day 2</span><div><h3>The long walk</h3><p>A guided four-kilometre traverse along the ridge. You learn the lope, the slow bounding gait the Moon rewards.</p></div></li>
+            <li data-day="2"><span class="rd">Day 3</span><div><h3>Into the dark</h3><p>A lamp-lit descent into a permanently shadowed crater, where water ice has waited since before the dinosaurs.</p></div></li>
+            <li data-day="3"><span class="rd">Day 4</span><div><h3>Earth day</h3><p>Rest in the cabin. Call home, then watch the continents turn slowly in the window.</p></div></li>
+            <li data-day="4"><span class="rd">Day 5</span><div><h3>De Gerlache rim</h3><p>Pressurised rover to the neighbouring crater. Lunch looking down four kilometres of cliff.</p></div></li>
+            <li data-day="5"><span class="rd">Day 6</span><div><h3>Leave one thing</h3><p>Bury a sealed capsule in the regolith. We log the coordinates. It will outlive every city on Earth.</p></div></li>
+            <li data-day="6"><span class="rd">Day 7</span><div><h3>Ascent</h3><p>Liftoff, rendezvous, three days drifting home. The prints stay.</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="training" id="training" aria-labelledby="training-title">
+      <div class="sticky">
+        <div class="panel panel-left wide">
+          <p class="sec-tag rd"><b>04</b> Training &amp; medical</p>
+          <h2 id="training-title">Six weeks on Earth for seven days up there.</h2>
+          <p class="lede small">No flying experience required. Fitness matters more than age: our oldest guest was seventy-one. You train in Houston and Cologne, alongside the crew who will fly you.</p>
+          <div class="cards">
+            <article class="tcard">
+              <img src="/img/artemis/training.webp" alt="A suited trainee walking on simulated regolith under a harsh spotlight, a support cable rising from the suit" loading="lazy" width="1000" height="1250">
+              <p class="rd">Weeks 1–2</p><h3>Partial gravity</h3><p>A harness carries five-sixths of your weight while you learn to walk, lope, and fall on simulant regolith.</p>
+            </article>
+            <article class="tcard">
+              <img src="/img/artemis/centrifuge.webp" alt="A human centrifuge: a long steel arm with a capsule sweeping around a circular concrete hall" loading="lazy" width="1000" height="1250">
+              <p class="rd">Weeks 3–4</p><h3>Launch loads</h3><p>Four centrifuge sessions building to 4 g, so the ride up feels like something you have already done.</p>
+            </article>
+            <article class="tcard tcard-text">
+              <ul class="med rd" aria-label="Medical clearance checklist">
+                <li><span>Suit scan</span><b>±0.4 mm</b></li>
+                <li><span>Cardiac stress</span><b>Cleared</b></li>
+                <li><span>Bone density</span><b>Cleared</b></li>
+                <li><span>Vestibular</span><b>Cleared</b></li>
+                <li><span>Radiation baseline</span><b>Logged</b></li>
+              </ul>
+              <p class="rd">Weeks 5–6</p><h3>Suit &amp; surgeon</h3><p>Your suit is cut to a 3D scan of your body. Cardiac, bone-density and vestibular screening, and a flight surgeon on every stay.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="price" id="price" aria-labelledby="price-title">
+      <div class="sticky">
+        <div class="panel panel-price">
+          <p class="sec-tag rd"><b>05</b> Price</p>
+          <h2 id="price-title"><span class="big">$4.2M</span><span class="all">all-inclusive.</span></h2>
+          <ul class="incl">
+            <li>Launch from LC-39B and the return home</li>
+            <li>Six weeks of training, medical and lodging</li>
+            <li>A suit cut to your body. It’s yours to keep.</li>
+            <li>Seven days, every EVA, every meal</li>
+            <li>Insurance, flight surgeon, one call home a day</li>
+            <li>Your footprints, which are permanent</li>
+          </ul>
+          <div class="price-cta" id="reserve">
+            <a class="btn btn-solid" href="#reserve" data-magnetic>Reserve with $250,000</a>
+            <a class="btn btn-ghost" href="#reserve" data-magnetic>Talk to a flight planner</a>
+          </div>
+          <p class="fine rd">Deposit fully refundable until training begins · next window October 2031 · 4 of 12 seats remain</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot" aria-labelledby="foot-title">
+      <div class="foot-inner">
+        <p class="rd foot-exp">Exposure +6 EV · shutter open · the stars were there the whole time</p>
+        <h2 id="foot-title" class="foot-title">Leave something<br>that lasts.</h2>
+        <div class="foot-cols">
+          <div class="rd"><b>Artemis Surface Stays</b><br>Launch: Kennedy Space Center, FL<br>Training: Houston · Cologne</div>
+          <div class="rd"><b>Site A</b><br>Shackleton Rim, 89.94°S 0.12°E<br>Sunlight 91% of the lunar year</div>
+          <a class="btn btn-solid" href="#reserve" data-magnetic>Reserve a seat</a>
+        </div>
+        <p class="rd legal">© 2031 Artemis Surface Stays — a fictional company. Not affiliated with NASA or any space agency.</p>
+      </div>
+    </footer>
+  </main>
+
+  <div class="hotspots" aria-hidden="true"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

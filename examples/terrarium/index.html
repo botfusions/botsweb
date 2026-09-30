@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bell &amp; Moss — A whole climate under glass</title>
+  <meta name="description" content="Hand-blown glass cloches sealed over living worlds in a London workshop. They make their own rain. Water it once, in 2031.">
+  <meta name="theme-color" content="#efe9dd">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-bell" aria-hidden="true">
+      <svg viewBox="0 0 120 150">
+        <defs>
+          <clipPath id="bell-clip"><path d="M14 132 C14 70 18 44 38 28 C48 20 56 18 60 18 C64 18 72 20 82 28 C102 44 106 70 106 132 Z"/></clipPath>
+        </defs>
+        <g clip-path="url(#bell-clip)">
+          <rect class="loader-fog" x="0" y="0" width="120" height="150"/>
+        </g>
+        <path class="loader-glass" d="M14 132 C14 70 18 44 38 28 C48 20 56 18 60 18 C64 18 72 20 82 28 C102 44 106 70 106 132"/>
+        <circle class="loader-glass" cx="60" cy="11" r="5.5"/>
+        <path class="loader-base" d="M6 132 H114 V140 C114 143 111 145 108 145 H12 C9 145 6 143 6 140 Z"/>
+      </svg>
+    </div>
+    <p class="loader-line">Letting the glass fog up <span class="loader-pct">0</span>%</p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Bell &amp; Moss home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20c0-7 .6-10.5 3.2-12.6C9.6 6.3 10.9 6 12 6s2.4.3 3.8 1.4C18.4 9.5 19 13 19 20" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="4" r="1.4" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M3.5 20.5h17" stroke="currentColor" stroke-width="1.3"/><path d="M9 20c.4-2.6 1.6-4.3 3-5.2 1.4.9 2.6 2.6 3 5.2" fill="currentColor" opacity=".55"/></svg>
+      <span>Bell <em>&amp;</em> Moss</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#climates">Climates</a>
+      <a href="#inside">Inside the glass</a>
+      <a href="#care">Care</a>
+      <a href="#shop">Shop</a>
+    </nav>
+    <a class="btn btn-solid btn-sm" href="#shop" data-magnetic><span>Shop the bells</span><b class="basket" aria-label="Basket">0</b></a>
+  </header>
+
+  <div class="wipe-cursor" aria-hidden="true"><i></i><span>wipe</span></div>
+  <div class="wipe-hint" aria-hidden="true"><span class="wipe-hint-dot"></span><span class="wipe-hint-text">Wipe the glass</span></div>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">Hand-blown in Hackney<span> &nbsp;·&nbsp; Sealed since 2011</span></p>
+        <h1 class="hero-title"><span class="ln">A whole climate</span> <span class="ln"><em>under glass.</em></span></h1>
+        <p class="hero-sub">Water it once, in 2031.</p>
+        <p class="hero-body">Every Bell &amp; Moss cloche is blown by hand, sealed over a living world and left to make its own weather. The moss breathes, the glass fogs, and it rains on the inside. You mostly just watch.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#climates" data-magnetic>Choose a climate</a>
+          <a class="btn btn-line" href="#inside" data-magnetic>What’s inside</a>
+        </div>
+      </div>
+      <p class="hero-label"><span>No. 0412</span><span>Moss Forest</span><span>Sealed 14 · 03 · 2026</span></p>
+      <p class="scroll-cue"><i></i>Scroll</p>
+    </section>
+
+    <section class="climates" id="climates" data-sec="climates">
+      <div class="sticky">
+        <div class="clim-panel">
+          <p class="eyebrow">Three climates</p>
+          <h2>Pick the weather you’d like to <em>live beside.</em></h2>
+          <div class="tabs" role="tablist" aria-label="Climates">
+            <button role="tab" class="tab on" data-i="0" aria-selected="true"><span>01</span>Moss Forest</button>
+            <button role="tab" class="tab" data-i="1" aria-selected="false"><span>02</span>High Desert</button>
+            <button role="tab" class="tab" data-i="2" aria-selected="false"><span>03</span>Cloud Tropic</button>
+          </div>
+          <div class="clim-cards">
+            <article class="clim on" data-i="0">
+              <h3>Moss Forest</h3>
+              <p class="latin">Leucobryum · Adiantum · <i>Ulmus parvifolia</i></p>
+              <p>A Kyoto moss garden in miniature: cushion moss, maidenhair fern, a path of river quartz and an eleven-year-old Chinese elm that has never been outdoors. Fogged by breakfast, clear by noon.</p>
+              <dl><div><dt>Humidity</dt><dd>92%</dd></div><div><dt>Light</dt><dd>Bright, indirect</dd></div><div><dt>Rain</dt><dd>Daily, inside</dd></div><div><dt>Water</dt><dd>Never</dd></div></dl>
+            </article>
+            <article class="clim" data-i="1">
+              <h3>High Desert</h3>
+              <p class="latin">Echeveria · Haworthia · <i>Mammillaria</i></p>
+              <p>The one exception to our rule. Rosettes and a flowering pincushion cactus on Arizona sand and sandstone, under a vented bell that only fogs on cold mornings. It likes a sunny sill.</p>
+              <dl><div><dt>Humidity</dt><dd>38%</dd></div><div><dt>Light</dt><dd>Sun is welcome</dd></div><div><dt>Rain</dt><dd>Rarely</dd></div><div><dt>Water</dt><dd>A spoon, at the equinox</dd></div></dl>
+            </article>
+            <article class="clim" data-i="2">
+              <h3>Cloud Tropic</h3>
+              <p class="latin">Fittonia · Nephrolepis · lava rock</p>
+              <p>Pink-veined fittonia and button fern around a pool, fed by a very small waterfall and a pump the size of a thimble. The glass rarely clears. It rains inside at about six every evening.</p>
+              <dl><div><dt>Humidity</dt><dd>98%</dd></div><div><dt>Light</dt><dd>Bright, indirect</dd></div><div><dt>Rain</dt><dd>Every evening</dd></div><div><dt>Water</dt><dd>Never</dd></div></dl>
+            </article>
+          </div>
+        </div>
+        <p class="clim-foot">Scroll, or choose a tab — the bell lifts, the base turns, a new world comes up.</p>
+      </div>
+    </section>
+
+    <section class="inside" id="inside" data-sec="inside">
+      <div class="sticky">
+        <div class="inside-head">
+          <p class="eyebrow">Inside the glass</p>
+          <h2>Five layers, one small <em>water cycle.</em></h2>
+          <p class="lede">Nothing in a sealed terrarium is decoration. Every layer has a job, and between them they turn a single glass of water into a decade of weather.</p>
+        </div>
+        <ol class="layer-labels">
+          <li data-k="world"><b>01</b><div><h4>Moss &amp; planting</h4><p>Set by hand, one cushion at a time.</p></div></li>
+          <li data-k="soil"><b>02</b><div><h4>Living soil</h4><p>Peat-free loam, bark, perlite and springtails.</p></div></li>
+          <li data-k="mesh"><b>03</b><div><h4>Fine mesh</h4><p>Keeps the soil out of the drainage.</p></div></li>
+          <li data-k="charcoal"><b>04</b><div><h4>Activated charcoal</h4><p>Keeps the water sweet and the air clean.</p></div></li>
+          <li data-k="stones"><b>05</b><div><h4>Drainage stones</h4><p>Where the rain waits until it’s needed.</p></div></li>
+          <li data-k="base"><b>06</b><div><h4>Walnut base</h4><p>One Herefordshire board. Oiled, never lacquered.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="care" id="care" data-sec="care">
+      <div class="sticky">
+        <div class="care-panel">
+          <p class="eyebrow">Care</p>
+          <h2>Light: bright, indirect. <em>Water: never.</em></h2>
+          <div class="clock" aria-live="off"><b class="clock-time">07:00</b><span class="clock-note">The soil warms and the glass fogs over.</span><i class="clock-bar"><s></s></i></div>
+          <ul class="care-list">
+            <li><h4>Somewhere bright</h4><p>A north or east window is perfect. Summer sun turns a cloche into a greenhouse, so keep it a metre back.</p></li>
+            <li><h4>Leave the bell on</h4><p>Condensation is the point, not a problem. If the glass stays fogged all day, lift it for an hour, once.</p></li>
+            <li><h4>Trim in spring</h4><p>Moss is a lawn. Brass scissors come with every cloche, and so does a reminder, every March.</p></li>
+            <li><h4>Call us in 2031</h4><p>Every bell is guaranteed for ten years. If yours ever needs water, we’ll come round and give it some.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop" id="shop" data-sec="shop">
+      <div class="sticky">
+        <div class="shop-head">
+          <p class="eyebrow">The collection</p>
+          <h2>Three bells, <em>sealed to order.</em></h2>
+        </div>
+        <div class="products">
+          <article class="product" data-i="0">
+            <p class="p-no">No. 01 · Moss Forest</p>
+            <h3>The Hollow</h3>
+            <p class="p-meta">24 cm bell · walnut base · 1.1 kg</p>
+            <div class="p-row"><b class="price">£240</b><button class="btn btn-solid btn-sm add" data-name="The Hollow">Reserve</button></div>
+          </article>
+          <article class="product" data-i="1">
+            <p class="p-no">No. 02 · High Desert</p>
+            <h3>The Mesa</h3>
+            <p class="p-meta">30 cm vented bell · walnut base · 2.3 kg</p>
+            <div class="p-row"><b class="price">£420</b><button class="btn btn-solid btn-sm add" data-name="The Mesa">Reserve</button></div>
+          </article>
+          <article class="product" data-i="2">
+            <p class="p-no">No. 03 · Cloud Tropic</p>
+            <h3>The Cloud Forest</h3>
+            <p class="p-meta">38 cm bell · waterfall · walnut base · 4.8 kg</p>
+            <div class="p-row"><b class="price">£680</b><button class="btn btn-solid btn-sm add" data-name="The Cloud Forest">Reserve</button></div>
+          </article>
+        </div>
+        <p class="shop-note">Blown to order and sealed on Thursdays. Delivered by hand in London, by a very careful courier everywhere else. Six weeks.</p>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" data-sec="visit">
+      <div class="visit-inner">
+        <p class="eyebrow">The workshop</p>
+        <h2>Come and wipe the glass <em>yourself.</em></h2>
+        <p class="lede">Sundays on Columbia Road, nine till three. Bring a question, a jam jar or an old fern — leave with a climate.</p>
+        <a class="btn btn-solid" href="#foot" data-magnetic>Book a Sunday visit</a>
+      </div>
+    </section>
+
+    <footer class="foot" id="foot">
+      <div class="foot-inner">
+        <div class="foot-brand">
+          <p class="foot-mark">Bell <em>&amp;</em> Moss</p>
+          <p>Glass cloches and the worlds under them.<br>Blown in Hackney, sealed on Thursdays.</p>
+        </div>
+        <div class="foot-col">
+          <h5>Workshop</h5>
+          <p>Unit 4, 12 Ezra Street<br>London E2 7RH<br>Sundays 09:00 – 15:00</p>
+        </div>
+        <div class="foot-col">
+          <h5>Explore</h5>
+          <p><a href="#climates">Climates</a><br><a href="#inside">Inside the glass</a><br><a href="#care">Care</a><br><a href="#shop">Shop</a></p>
+        </div>
+        <form class="foot-news" onsubmit="return false">
+          <h5>The Condensation</h5>
+          <p>A short letter, four times a year — at each equinox and solstice.</p>
+          <label><span class="sr">Email address</span><input type="email" placeholder="you@example.com" autocomplete="email"></label>
+          <button class="btn btn-solid btn-sm" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <p class="foot-small"><span>© 2026 Bell &amp; Moss Ltd</span><span>Walnut from Herefordshire · Glass from Hackney · Moss from Kent</span></p>
+    </footer>
+  </main>
+
+  <div class="toast" role="status"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

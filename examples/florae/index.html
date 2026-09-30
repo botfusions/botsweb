@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Florae — A flower a month, from the edge of the map</title>
+  <meta name="description" content="Florae is a botanical archive and flower atelier. One extraordinary specimen each month, cut at dawn by the person who grew it, with its botanical plate.">
+  <meta name="theme-color" content="#f4efe6">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2215%22 fill=%22%23f4efe6%22/%3E%3Cg fill=%22none%22 stroke=%22%23d6456b%22 stroke-width=%221.6%22%3E%3Cpath d=%22M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z%22/%3E%3Cpath d=%22M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z%22 transform=%22rotate(72 16 16)%22/%3E%3Cpath d=%22M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z%22 transform=%22rotate(144 16 16)%22/%3E%3Cpath d=%22M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z%22 transform=%22rotate(216 16 16)%22/%3E%3Cpath d=%22M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z%22 transform=%22rotate(288 16 16)%22/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <canvas class="loader-seed" aria-hidden="true"></canvas>
+    <p class="loader-line"><em>Pressing the specimen</em> <span class="loader-pct">0</span></p>
+    <p class="loader-sub caps">Florae &nbsp;·&nbsp; Plates I — IV &nbsp;·&nbsp; Autumn 2026</p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Florae home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z"/><path d="M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z" transform="rotate(72 16 16)"/><path d="M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z" transform="rotate(144 16 16)"/><path d="M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z" transform="rotate(216 16 16)"/><path d="M16 16c-2.6-3.4-2.6-8.2 0-11.4 2.6 3.2 2.6 8 0 11.4Z" transform="rotate(288 16 16)"/></g><circle cx="16" cy="16" r="1.6" fill="currentColor"/></svg>
+      <span>Florae</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#specimens">Specimens</a>
+      <a href="#archive">The archive</a>
+      <a href="#subscribe">Membership</a>
+    </nav>
+    <a class="btn btn-line" href="#subscribe" data-magnetic>Begin <span class="btn-sep">—</span> €48<small>/mo</small></a>
+  </header>
+
+  <svg class="leaders" aria-hidden="true"></svg>
+  <div class="callouts" aria-hidden="true"></div>
+  <p class="fig caps" aria-hidden="true">Fig. 1 &nbsp;— &nbsp;<em>Rosa</em> ‘Explorer’, drawn in <span class="fig-n">200,704</span> points</p>
+
+  <aside class="rail" aria-label="This season's plates">
+    <a href="#spec-0" data-k="0"><b>I</b><span>Rosa</span></a>
+    <a href="#spec-1" data-k="1"><b>II</b><span>Protea</span></a>
+    <a href="#spec-2" data-k="2"><b>III</b><span>Phalaenopsis</span></a>
+    <a href="#spec-3" data-k="3"><b>IV</b><span>Morpho</span></a>
+  </aside>
+
+  <main id="top">
+    <!-- ── Hero ─────────────────────────────────────────── -->
+    <section class="hero">
+      <p class="hero-kicker caps"><span>No. 037</span><span>October 2026</span><span>Cayambe, Ecuador &nbsp;0°02′ N</span></p>
+      <h1 class="hero-title" aria-label="Florae">Florae</h1>
+      <p class="hero-line"><em>A flower a month,</em><br><em>from the edge of the map.</em></p>
+      <p class="hero-body">One extraordinary specimen, cut at dawn by the person who grew it — somewhere most maps leave blank — and at your door within forty-eight hours, with its botanical plate.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#subscribe" data-magnetic>Subscribe — €48 / month</a>
+        <a class="link" href="#specimens">This season’s plates <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <!-- ── Atelier ──────────────────────────────────────── -->
+    <section class="atelier" id="atelier">
+      <div class="atelier-inner">
+        <p class="eyebrow caps">The atelier &nbsp;·&nbsp; Lisbon, since 2019</p>
+        <h2>We don’t send bouquets. We send <em>one flower</em>, and everything we know about it.</h2>
+        <div class="atelier-cols">
+          <p>Florae began as a herbarium in a Lisbon attic: six hundred pressed sheets, a brass microscope, and a list of places the flower trade has never reached.</p>
+          <p>Today twenty-three growers on five continents cut a single stem for each member on the same morning. It travels in a cedar box with its plate, its coordinates, and a letter from the hands that grew it.</p>
+        </div>
+        <dl class="stats">
+          <div><dt>23</dt><dd class="caps">growers on five continents</dd></div>
+          <div><dt>48<small>h</small></dt><dd class="caps">from the stem to your door</dd></div>
+          <div><dt>37</dt><dd class="caps">months sent, not one repeated</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ── Specimens ────────────────────────────────────── -->
+    <section class="spec" id="specimens" data-k="0">
+      <span id="spec-0" class="anchor"></span>
+      <div class="pin">
+        <article class="plate plate-left">
+          <p class="plate-top caps"><span>Plate I</span><span class="plate-status">Settled</span><span>Month 37 · October</span></p>
+          <h2 class="latin"><em>Rosa</em> ‘Explorer’</h2>
+          <p class="common">The equator rose</p>
+          <dl class="facts">
+            <div><dt class="caps">Origin</dt><dd>Cayambe volcano, Ecuador<span>0°02′ N &nbsp;·&nbsp; 2,850 m</span></dd></div>
+            <div><dt class="caps">Bloom season</dt><dd>All year<span>the equator has no seasons, only altitude</span></dd></div>
+            <div><dt class="caps">Grown by</dt><dd>Rosa Quishpe<span>Finca Yanahurco, third generation</span></dd></div>
+            <div><dt class="caps">Vase life</dt><dd>Fourteen days<span>recut the stem every second morning</span></dd></div>
+          </dl>
+          <p class="notes">Twelve hours of vertical sun and cold Andean nights grow a head the size of a fist on a stem as straight as a rule. Forty-two petals, velvet to the touch, darkest where they are still furled.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="spec" data-k="1">
+      <span id="spec-1" class="anchor"></span>
+      <div class="pin">
+        <article class="plate plate-right">
+          <p class="plate-top caps"><span>Plate II</span><span class="plate-status">Settled</span><span>Month 38 · November</span></p>
+          <h2 class="latin"><em>Protea cynaroides</em></h2>
+          <p class="common">The king that waits for fire</p>
+          <dl class="facts">
+            <div><dt class="caps">Origin</dt><dd>Kogelberg, Western Cape<span>34°19′ S &nbsp;·&nbsp; 400 m, in the fynbos</span></dd></div>
+            <div><dt class="caps">Bloom season</dt><dd>May — October<span>the Cape winter, when the rain comes</span></dd></div>
+            <div><dt class="caps">Grown by</dt><dd>Thandi Mokoena<span>on land her grandmother burned and replanted</span></dd></div>
+            <div><dt class="caps">Keeps</dt><dd>For years<span>dried on its own stem, out of water</span></dd></div>
+          </dl>
+          <p class="notes">What looks like one flower is two hundred, packed into a cone and guarded by pink, silver-haired bracts. In the wild it waits for fire to open its seed. It arrives fresh and dries without losing its shape.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="spec" data-k="2">
+      <span id="spec-2" class="anchor"></span>
+      <div class="pin">
+        <article class="plate plate-left">
+          <p class="plate-top caps"><span>Plate III</span><span class="plate-status">Settled</span><span>Month 39 · December</span></p>
+          <h2 class="latin"><em>Phalaenopsis amabilis</em></h2>
+          <p class="common">The moon orchid</p>
+          <dl class="facts">
+            <div><dt class="caps">Origin</dt><dd>Crocker Range, Sabah, Borneo<span>5°25′ N &nbsp;·&nbsp; 900 m, in the canopy</span></dd></div>
+            <div><dt class="caps">Bloom season</dt><dd>Spikes in spring<span>each flower stays open up to a hundred days</span></dd></div>
+            <div><dt class="caps">Grown by</dt><dd>The Kinabalu Orchid Trust<span>from nursery seed-stock, never the wild</span></dd></div>
+            <div><dt class="caps">Arrives</dt><dd>Rooted, in bark<span>from the same forest it came from</span></dd></div>
+          </dl>
+          <p class="notes">An epiphyte: it lives in the treetops and never touches soil. Its lip is a landing strip painted for a single carpenter bee. Keep its roots in the light and it will flower for you again next spring.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="spec" data-k="3">
+      <span id="spec-3" class="anchor"></span>
+      <div class="pin">
+        <article class="plate plate-right">
+          <p class="plate-top caps"><span>Plate IV</span><span class="plate-status">Settled</span><span>Month 40 · January</span></p>
+          <h2 class="latin"><em>Morpho peleides</em></h2>
+          <p class="common">The one that isn’t a flower</p>
+          <dl class="facts">
+            <div><dt class="caps">Origin</dt><dd>Osa Peninsula, Costa Rica<span>8°32′ N &nbsp;·&nbsp; lowland rainforest</span></dd></div>
+            <div><dt class="caps">On the wing</dt><dd>All year<span>most in the green season, May — November</span></dd></div>
+            <div><dt class="caps">Reared by</dt><dd>Co-operative of Rancho Quemado<span>twelve families, farm-bred stock</span></dd></div>
+            <div><dt class="caps">Arrives</dt><dd>Under museum glass<span>after a natural life of three weeks</span></dd></div>
+          </dl>
+          <p class="notes">Every twelfth month we send the visitor instead of the visited. There is no blue pigment in these wings: the scales are ridged like tiny shelves that fold light into colour. Watch the blue change as it breathes.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Archive ──────────────────────────────────────── -->
+    <section class="archive" id="archive">
+      <div class="archive-inner">
+        <header class="archive-head">
+          <p class="eyebrow caps">The archive &nbsp;·&nbsp; 137.5°</p>
+          <h2>Next month is <em>already in bud.</em></h2>
+          <p class="lede">Our archive grows like a sunflower head. Every specimen we have sent is a floret in this spiral, set at the golden angle — the oldest at the rim, the months to come still green at the centre.</p>
+        </header>
+        <ol class="months">
+          <li><span class="mo caps">Nov 2026</span><span class="la"><em>Paphiopedilum rothschildianum</em><small>Gold of Kinabalu</small></span><span class="or caps">Sabah, Borneo</span><span class="st caps"><i></i>In bud</span></li>
+          <li><span class="mo caps">Dec 2026</span><span class="la"><em>Helleborus niger</em><small>The Christmas rose</small></span><span class="or caps">Julian Alps, Slovenia</span><span class="st caps"><i></i>In bud</span></li>
+          <li><span class="mo caps">Jan 2027</span><span class="la"><em>Camellia japonica</em> ‘Kuro-tsubaki’<small>The black camellia</small></span><span class="or caps">Izu Ōshima, Japan</span><span class="st caps"><i></i>Setting buds</span></li>
+          <li><span class="mo caps">Feb 2027</span><span class="la"><em>Swainsona formosa</em><small>Sturt’s desert pea</small></span><span class="or caps">Pilbara, Australia</span><span class="st caps"><i></i>Seed sown</span></li>
+          <li><span class="mo caps">Mar 2027</span><span class="la"><em>Tulipa sprengeri</em><small>The last wild tulip of Amasya</small></span><span class="or caps">Anatolia, Türkiye</span><span class="st caps"><i></i>Bulbs resting</span></li>
+          <li><span class="mo caps">Apr 2027</span><span class="la"><em>Meconopsis betonicifolia</em><small>The Himalayan blue poppy</small></span><span class="or caps">Bumthang, Bhutan</span><span class="st caps"><i></i>Under snow</span></li>
+        </ol>
+        <p class="archive-foot caps">36 florets sent &nbsp;·&nbsp; none repeated &nbsp;·&nbsp; one added on the 3rd of every month</p>
+      </div>
+    </section>
+
+    <!-- ── Membership ───────────────────────────────────── -->
+    <section class="subscribe" id="subscribe">
+      <div class="subscribe-inner">
+        <p class="eyebrow caps">Membership</p>
+        <h2>Three ways to <em>receive the month.</em></h2>
+        <div class="tiers">
+          <article class="tier">
+            <p class="tier-no caps">I</p>
+            <h3>The Stem</h3>
+            <p class="price">€48<span>/ month</span></p>
+            <ul>
+              <li>One specimen, cut to order and couriered cold in a cedar box</li>
+              <li>Its botanical plate, printed on cotton rag</li>
+              <li>The grower’s letter, translated</li>
+            </ul>
+            <a class="btn btn-line" href="#begin" data-magnetic>Begin with the Stem</a>
+          </article>
+          <article class="tier tier-feature">
+            <p class="tier-no caps">II &nbsp;·&nbsp; Most kept</p>
+            <h3>The Herbarium</h3>
+            <p class="price">€76<span>/ month</span></p>
+            <ul>
+              <li>Everything in the Stem</li>
+              <li>A pressed duplicate, mounted on archival card</li>
+              <li>At month twelve, the year’s plates bound in linen</li>
+            </ul>
+            <a class="btn btn-solid" href="#begin" data-magnetic>Keep a herbarium</a>
+          </article>
+          <article class="tier">
+            <p class="tier-no caps">III</p>
+            <h3>The Expedition</h3>
+            <p class="price">€140<span>/ month</span></p>
+            <ul>
+              <li>Two stems: one to keep, one to give away</li>
+              <li>A hand-coloured plate, signed by the illustrator</li>
+              <li>A place in the ballot for our spring collecting journey</li>
+            </ul>
+            <a class="btn btn-line" href="#begin" data-magnetic>Join the expedition</a>
+          </article>
+        </div>
+        <p class="fine caps">Free cold-chain delivery to 31 countries &nbsp;·&nbsp; Pause, skip or gift any month &nbsp;·&nbsp; Cancel with a postcard</p>
+      </div>
+    </section>
+
+    <!-- ── Footer ───────────────────────────────────────── -->
+    <footer class="foot" id="begin">
+      <div class="foot-inner">
+        <p class="eyebrow caps">October’s rose is cut on the 3rd, at dawn</p>
+        <h2 class="foot-title">Your first flower <em>is already growing.</em></h2>
+        <a class="btn btn-solid btn-big" href="#subscribe" data-magnetic>Subscribe — €48 / month</a>
+        <div class="foot-grid">
+          <div><h4 class="caps">Atelier</h4><p>Rua das Flores 28<br>1200-195 Lisboa, Portugal</p></div>
+          <div><h4 class="caps">Growers</h4><p>Twenty-three, on five continents.<br><a href="#archive">Meet them in the archive</a></p></div>
+          <div><h4 class="caps">Letters</h4><p>One note a month, on the morning the flower is cut. Nothing else.</p></div>
+          <div><h4 class="caps">Elsewhere</h4><p><a href="#top">Instagram</a> · <a href="#top">Are.na</a> · <a href="#top">Press</a></p></div>
+        </div>
+        <p class="colophon caps"><span>© 2026 Florae Atelier</span><span>Plates drawn from living specimens</span><span>Set in Cormorant, EB Garamond &amp; Inter Tight</span></p>
+      </div>
+    </footer>
+  </main>
+
+  <div class="hint" aria-hidden="true">
+    <span><i>Move</i>a breeze</span>
+    <span><i>Click</i>a gust</span>
+    <span><i>Hold</i>a storm</span>
+  </div>
+  <div class="charge" aria-hidden="true"><svg viewBox="0 0 64 64"><circle class="charge-bg" cx="32" cy="32" r="26"/><circle class="charge-fg" cx="32" cy="32" r="26"/></svg><span>storm</span></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Atlas of Drifting Isles — Airship passage above the cloud sea</title>
+  <meta name="description" content="Four islands adrift above the cloud sea, reachable only by airship. Daily departures from Port Aubade since 1887.">
+  <meta name="theme-color" content="#8cc9ff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..700&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-card">
+      <p class="loader-mark">Atlas <i>of Drifting Isles</i></p>
+      <svg class="loader-route" viewBox="0 0 360 130" aria-hidden="true">
+        <path id="route" d="M24 104 C 90 20, 250 10, 336 88" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2 7" stroke-linecap="round"/>
+        <path class="route-done" d="M24 104 C 90 20, 250 10, 336 88" fill="none" stroke="#ef7d5c" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="24" cy="104" r="4.5" fill="#1d2742"/>
+        <g class="route-isles" fill="#fff8ee" stroke="#1d2742" stroke-width="1.3">
+          <ellipse cx="336" cy="92" rx="13" ry="5"/><path d="M325 92 l11 14 l11 -14" /><path d="M334 86 v-9 l5 3 l-5 2" fill="#ef7d5c" stroke="none"/>
+        </g>
+        <g class="loader-ship">
+          <ellipse cx="0" cy="0" rx="17" ry="7" fill="#f7eedf" stroke="#1d2742" stroke-width="1.3"/>
+          <path d="M-9 -6.3 C-3 -7.4 3 -7.4 9 -6.3 M-9 6.3 C-3 7.4 3 7.4 9 6.3" stroke="#ef7d5c" stroke-width="2" fill="none"/>
+          <path d="M-17 0 l-6 -6 v12 z" fill="#ef7d5c"/>
+          <rect x="-5" y="8" width="10" height="4" rx="1.5" fill="#1d2742"/>
+        </g>
+        <text x="24" y="124" class="loader-label">Port Aubade</text>
+        <text x="336" y="124" text-anchor="end" class="loader-label">The Drift</text>
+      </svg>
+      <p class="loader-line">Charting the drift <span class="loader-pct">0</span>%</p>
+      <p class="loader-sub">Wind WSW, 12 knots · visibility excellent · all four isles in range</p>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Atlas of Drifting Isles, home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M20 4 L23 20 L20 36 L17 20 Z" fill="currentColor"/><path d="M4 20 L20 17.5 L36 20 L20 22.5 Z" fill="currentColor" opacity=".35"/><ellipse cx="20" cy="13" rx="6.5" ry="3" fill="#ef7d5c"/></svg>
+      <span class="brand-words"><b>Atlas</b><i>of Drifting Isles</i></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#lanternholm" data-go="1">Destinations</a>
+      <a href="#fleet" data-go="5">The fleet</a>
+      <a href="#book" data-go="6">Timetable &amp; fares</a>
+    </nav>
+    <a class="btn btn-coral" href="#book" data-go="6" data-magnetic>Book a crossing</a>
+  </header>
+
+  <main class="track">
+    <!-- 0 · Hero -->
+    <section class="stop stop-hero" id="top" data-st="0" aria-label="Welcome">
+      <div class="panel hero" data-panel="0">
+        <p class="kicker" data-rise>Sky passage since 1887 <span>·</span> Daily departures from Port Aubade</p>
+        <h1 class="hero-title">
+          <span class="hero-line1" data-rise>The map is not the territory.</span>
+          <span class="hero-line2" data-rise>The territory<br><em>floats.</em></span>
+        </h1>
+        <p class="hero-sub" data-rise>Four islands adrift above the cloud sea, reachable only by airship. We keep the timetable. The wind keeps the rest.</p>
+        <div class="hero-cta" data-rise>
+          <a class="btn btn-ink" href="#lanternholm" data-go="1" data-magnetic>Take the grand tour</a>
+          <span class="hint"><i class="hint-ring" aria-hidden="true"></i>Click any island to fly there</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1 · Lanternholm -->
+    <section class="stop" id="lanternholm" data-st="1" aria-label="Lanternholm">
+      <article class="panel ticket t-left" data-panel="1">
+        <header class="t-head" data-rise><span class="t-num">I</span><span class="t-route">Port Aubade <i>⟶</i> Lanternholm</span><span class="t-code">AD&nbsp;101</span></header>
+        <h2 class="t-name" data-rise>Lanternholm</h2>
+        <p class="t-meta" data-rise><b>3 h</b> from Port Aubade <span>·</span> the lighthouse isle</p>
+        <p class="t-lede" data-rise>The only lighthouse in the world that has never seen the sea. Keeper Oona Brisk lights the lamp at dusk anyway — for airships, for swifts, and for anyone who has lost their bearings above the clouds.</p>
+        <ul class="t-list" data-rise>
+          <li>Climb the 112 steps to the lamp room at dusk</li>
+          <li>Seed cake and strong tea in the keeper’s cottage</li>
+          <li>Lupin meadows in flower from May to August</li>
+        </ul>
+        <dl class="t-facts" data-rise><div><dt>Altitude</dt><dd>1,900 m</dd></div><div><dt>Drift</dt><dd>4 km/day NNE</dd></div><div><dt>Islanders</dt><dd>2 and a cat</dd></div></dl>
+        <footer class="t-stub" data-rise>
+          <p class="t-price"><small>Return from</small><b>180</b><span>crowns</span></p>
+          <p class="t-when">Daily · 07:40</p>
+          <a class="btn btn-coral" href="#book" data-go="6" data-dest="lanternholm">Reserve a berth</a>
+        </footer>
+      </article>
+    </section>
+
+    <!-- 2 · Amberlea -->
+    <section class="stop" id="amberlea" data-st="2" aria-label="Amberlea">
+      <article class="panel ticket t-right" data-panel="2">
+        <header class="t-head" data-rise><span class="t-num">II</span><span class="t-route">Port Aubade <i>⟶</i> Amberlea</span><span class="t-code">AD&nbsp;204</span></header>
+        <h2 class="t-name" data-rise>Amberlea</h2>
+        <p class="t-meta" data-rise><b>4½ h</b> from Port Aubade <span>·</span> the drifting farm</p>
+        <p class="t-lede" data-rise>The breadbasket of the archipelago: wheat that grows in thin air, a mill that has not stopped turning since 1904, and a river that runs off the end of the farm into nothing at all.</p>
+        <ul class="t-list" data-rise>
+          <li>Bring in the July harvest with the Amberlea families</li>
+          <li>Row the mill-river right to the edge of the world</li>
+          <li>A warm loaf from the mill with every return berth</li>
+        </ul>
+        <dl class="t-facts" data-rise><div><dt>Altitude</dt><dd>1,650 m</dd></div><div><dt>Drift</dt><dd>2 km/day E</dd></div><div><dt>Islanders</dt><dd>31</dd></div></dl>
+        <footer class="t-stub" data-rise>
+          <p class="t-price"><small>Return from</small><b>150</b><span>crowns</span></p>
+          <p class="t-when">Mon · Wed · Sat</p>
+          <a class="btn btn-coral" href="#book" data-go="6" data-dest="amberlea">Reserve a berth</a>
+        </footer>
+      </article>
+    </section>
+
+    <!-- 3 · Hollowmere -->
+    <section class="stop" id="hollowmere" data-st="3" aria-label="Hollowmere">
+      <article class="panel ticket t-left" data-panel="3">
+        <header class="t-head" data-rise><span class="t-num">III</span><span class="t-route">Port Aubade <i>⟶</i> Hollowmere</span><span class="t-code">AD&nbsp;316</span></header>
+        <h2 class="t-name" data-rise>Hollowmere</h2>
+        <p class="t-meta" data-rise><b>6 h</b> from Port Aubade <span>·</span> the endless falls</p>
+        <p class="t-lede" data-rise>A forest lake that never empties, pouring over the island’s lip into two thousand metres of air. Nobody has found where the water comes from. Everybody agrees it tastes of rain.</p>
+        <ul class="t-list" data-rise>
+          <li>Swim the pool a stone’s throw from the edge</li>
+          <li>Cross the moss bridge to the Wayfinder Stones</li>
+          <li>Canopy hammocks, with rainbows at breakfast</li>
+        </ul>
+        <dl class="t-facts" data-rise><div><dt>Altitude</dt><dd>2,300 m</dd></div><div><dt>Drift</dt><dd>6 km/day S</dd></div><div><dt>Islanders</dt><dd>None, officially</dd></div></dl>
+        <footer class="t-stub" data-rise>
+          <p class="t-price"><small>Return from</small><b>260</b><span>crowns</span></p>
+          <p class="t-when">Tue · Fri</p>
+          <a class="btn btn-coral" href="#book" data-go="6" data-dest="hollowmere">Reserve a berth</a>
+        </footer>
+      </article>
+    </section>
+
+    <!-- 4 · Hanakumo -->
+    <section class="stop" id="hanakumo" data-st="4" aria-label="Hanakumo">
+      <article class="panel ticket t-right" data-panel="4">
+        <header class="t-head" data-rise><span class="t-num">IV</span><span class="t-route">Port Aubade <i>⟶</i> Hanakumo</span><span class="t-code">AD&nbsp;409</span></header>
+        <h2 class="t-name" data-rise>Hanakumo</h2>
+        <p class="t-meta" data-rise><b>9 h</b> from Port Aubade <span>·</span> overnight, by sleeper</p>
+        <p class="t-lede" data-rise>A three-tiered temple whose cherry trees bloom every month the island drifts south. The monks ring the wind bells by hand when a ship comes in — you will hear Hanakumo an hour before you see it.</p>
+        <ul class="t-list" data-rise>
+          <li>The dawn bell ceremony on the upper gallery</li>
+          <li>The lantern stair: through the torii, up 208 steps</li>
+          <li>Petal season — we will wake you when it starts</li>
+        </ul>
+        <dl class="t-facts" data-rise><div><dt>Altitude</dt><dd>2,800 m</dd></div><div><dt>Drift</dt><dd>3 km/day SW</dd></div><div><dt>Islanders</dt><dd>12 monks</dd></div></dl>
+        <footer class="t-stub" data-rise>
+          <p class="t-price"><small>Return from</small><b>340</b><span>crowns</span></p>
+          <p class="t-when">Thursdays · sleeper</p>
+          <a class="btn btn-coral" href="#book" data-go="6" data-dest="hanakumo">Reserve a berth</a>
+        </footer>
+      </article>
+    </section>
+
+    <!-- 5 · Fleet -->
+    <section class="stop" id="fleet" data-st="5" aria-label="The airship fleet">
+      <div class="panel fleet" data-panel="5">
+        <p class="kicker" data-rise>The fleet</p>
+        <h2 class="fleet-title" data-rise>Three ships, each named for a kind of weather.</h2>
+        <p class="fleet-lede" data-rise>Every Atlas ship is built in Port Aubade from spruce, copper rivets and eleven thousand square metres of waxed silk. They are not fast. That is rather the point.</p>
+        <ul class="ships">
+          <li class="ship is-here" data-rise><span class="ship-tag">You are looking at her</span><h3>Zephyrine</h3><p>Flagship · 24 berths</p><p class="ship-note">Observation deck, dining saloon, a piano that is only slightly out of tune.</p></li>
+          <li class="ship" data-rise><span class="ship-tag">Overnight</span><h3>Halcyon</h3><p>Sleeper · 12 cabins</p><p class="ship-note">The Hanakumo run. Linen sheets, porthole bunks, cocoa at 2,800 m.</p></li>
+          <li class="ship" data-rise><span class="ship-tag">Charter</span><h3>Little Squall</h3><p>Six seats · any isle</p><p class="ship-note">Goes wherever the wind is going, which is usually somewhere good.</p></li>
+        </ul>
+        <dl class="fleet-stats" data-rise><div><dt>38 kn</dt><dd>cruising, with a tailwind</dd></div><div><dt>2,900 m</dt><dd>service ceiling</dd></div><div><dt>137 yrs</dt><dd>no passenger lost (one umbrella)</dd></div></dl>
+      </div>
+    </section>
+
+    <!-- 6 · Booking -->
+    <section class="stop stop-book" id="book" data-st="6" aria-label="Book a crossing">
+      <div class="panel book" data-panel="6">
+        <p class="kicker" data-rise>Timetable &amp; fares</p>
+        <h2 class="book-title" data-rise>Pack light. Everything up here already floats.</h2>
+        <p class="book-lede" data-rise>Berths open ninety days ahead. Every fare includes breakfast aboard, a wool blanket and a window seat.</p>
+        <form class="booking" data-rise onsubmit="return false">
+          <label class="field"><span>From</span><input value="Port Aubade" readonly></label>
+          <label class="field"><span>To</span>
+            <select name="dest">
+              <option value="lanternholm">Lanternholm · 3 h</option>
+              <option value="amberlea">Amberlea · 4½ h</option>
+              <option value="hollowmere">Hollowmere · 6 h</option>
+              <option value="hanakumo">Hanakumo · 9 h</option>
+            </select>
+          </label>
+          <label class="field"><span>Depart</span><input type="date" name="date"></label>
+          <label class="field field-small"><span>Travellers</span>
+            <select name="pax"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+          </label>
+          <button class="btn btn-coral btn-big" type="submit" data-magnetic>Find a berth</button>
+        </form>
+        <p class="book-note" data-rise>Crossings are subject to wind. If your island drifts out of range, we refund in full and send a postcard.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-cloud" aria-hidden="true"></div>
+    <div class="foot-inner">
+      <p class="foot-mark">Atlas <i>of Drifting Isles</i></p>
+      <div class="foot-cols">
+        <div><h4>Harbour Master’s Office</h4><p>Pier 9, Port Aubade<br>Open daily 06:00 – 22:00<br>Last boarding call 21:40</p></div>
+        <div><h4>Destinations</h4><p><a href="#lanternholm" data-go="1">Lanternholm</a><br><a href="#amberlea" data-go="2">Amberlea</a><br><a href="#hollowmere" data-go="3">Hollowmere</a><br><a href="#hanakumo" data-go="4">Hanakumo</a></p></div>
+        <div><h4>Aboard</h4><p><a href="#fleet" data-go="5">The fleet</a><br><a href="#book" data-go="6">Timetable &amp; fares</a><br>Gift berths<br>Lost umbrellas</p></div>
+        <div><h4>Est. 1887</h4><p>Member of the Guild of Lighter-than-Air Carriers. Weather permitting, always.</p></div>
+      </div>
+      <p class="foot-small"><span>© 1887–2026 Atlas of Drifting Isles</span><span>Timetables subject to wind</span></p>
+    </div>
+  </footer>
+
+  <!-- chrome over the world -->
+  <div class="pins" aria-hidden="true"></div>
+  <aside class="chart" aria-label="Chart of the drift">
+    <p class="chart-title"><span>The drift chart</span><em class="chart-where">Port Aubade approaches</em></p>
+    <div class="chart-map"><canvas class="chart-canvas"></canvas><div class="chart-dots"></div></div>
+  </aside>
+  <div class="toast" role="status"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

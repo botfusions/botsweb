@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Low Frequency — Listening bar &amp; record label, Tokyo</title>
+  <meta name="description" content="A twelve-seat listening bar and record label in Shimokitazawa. Put your hand on the record.">
+  <meta name="theme-color" content="#0a0610">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2215%22 fill=%22%230d0a10%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%225.5%22 fill=%22%23a78bfa%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%221%22 fill=%22%230d0a10%22/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400&family=Zen+Kaku+Gothic+New:wght@500&text=%E4%BD%8E%E5%91%A8%E6%B3%A2%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E6%89%8B%E3%82%92%E7%BD%AE%E3%81%84%E3%81%A6%E5%B8%AD%E4%B8%8B%E5%8C%97%E6%B2%A2&display=block" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-disc" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <circle class="ld-body" cx="100" cy="100" r="96"/>
+        <g class="ld-grooves"></g>
+        <circle class="ld-label" cx="100" cy="100" r="31"/>
+        <circle class="ld-hole" cx="100" cy="100" r="2.4"/>
+      </svg>
+      <span class="loader-pct">000</span>
+    </div>
+    <p class="loader-line mono">Warming the valves</p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Low Frequency home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="16" cy="16" r="4.5" fill="currentColor"/><path d="M4.5 16c2.2-4 3.6-4 5.8 0s3.6 4 5.7 0 3.6-4 5.8 0 3.5 4 5.7 0" fill="none" stroke="currentColor" stroke-width="1.3" opacity=".0"/></svg>
+      <span>Low&nbsp;Frequency</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#pressing">Pressing</a>
+      <a href="#bar">The bar</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#club">Record club</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" type="button" aria-pressed="false" data-cursor="link">
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="sound-label mono">Sound off</span>
+      </button>
+      <a class="btn btn-ghost" href="#visit" data-magnetic>Reserve a seat</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 01 · Hero -->
+    <section class="sec hero" id="hero" data-cam="hero">
+      <div class="hero-copy">
+        <p class="eyebrow mono"><span class="dot"></span> Listening bar &amp; record label · Shimokitazawa, Tokyo</p>
+        <h1 class="title"><span class="line">Put your hand</span><span class="line">on the record<em>.</em></span></h1>
+        <p class="sub">Twelve seats, one turntable and four thousand eight hundred records. We press what we play — and we play it loud enough to feel it through the counter.</p>
+        <div class="hero-cta">
+          <button class="btn btn-solid play-main" type="button" data-magnetic>
+            <span class="pi" aria-hidden="true"></span><span class="pl">Drop the needle</span>
+          </button>
+          <a class="btn btn-ghost" href="#pressing" data-magnetic>This week’s pressing</a>
+        </div>
+      </div>
+      <p class="vert jp" aria-hidden="true">レコードに手を置いて</p>
+      <div class="hero-meta mono" aria-hidden="true">
+        <span>LF-011 · Side A</span><span class="rpm-read">33⅓ rpm</span><span class="bpm-read">— bpm</span>
+      </div>
+    </section>
+
+    <!-- 02 · This week's pressing -->
+    <section class="sec pressing" id="pressing" data-cam="press">
+      <div class="col col-right">
+        <p class="eyebrow mono">02 — This week’s pressing · LF-011</p>
+        <h2>Aubergine <em>Hours</em></h2>
+        <p class="byline mono">Kazu Nomura &amp; The Late Room · 180 g black vinyl · 300 copies</p>
+        <p class="lede">Recorded in a single night at the bar after close, with the room mics still up. Nomura plays the house Rhodes; the rhythm section plays the counter. Pick a band — the arm will find it.</p>
+        <ol class="tracks">
+          <li data-track="0"><button type="button" class="cue" data-cursor="link" aria-label="Cue A1"><span class="ci" aria-hidden="true"></span></button><span class="tn mono">A1</span><span class="tt">Last Train, Shimokita</span><span class="tb mono">122 bpm</span><span class="td mono">4:12</span></li>
+          <li data-track="1"><button type="button" class="cue" data-cursor="link" aria-label="Cue A2"><span class="ci" aria-hidden="true"></span></button><span class="tn mono">A2</span><span class="tt">Aubergine Hours</span><span class="tb mono">84 bpm</span><span class="td mono">5:03</span></li>
+          <li data-track="2"><button type="button" class="cue" data-cursor="link" aria-label="Cue A3"><span class="ci" aria-hidden="true"></span></button><span class="tn mono">A3</span><span class="tt">Seat Seven</span><span class="tb mono">118 bpm</span><span class="td mono">3:48</span></li>
+          <li data-track="3"><button type="button" class="cue" data-cursor="link" aria-label="Cue A4"><span class="ci" aria-hidden="true"></span></button><span class="tn mono">A4</span><span class="tt">Needle Rain</span><span class="tb mono">96 bpm</span><span class="td mono">6:20</span></li>
+        </ol>
+        <p class="fine mono">Each cue is sixteen bars, synthesised in your browser the moment you press it. Nothing is streamed; nothing is sampled.</p>
+        <div class="buy">
+          <span class="price">¥4,400</span>
+          <a class="btn btn-solid" href="#club" data-magnetic>Pre-order the LP</a>
+          <span class="mono stock"><i></i> 41 of 300 left</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · The bar -->
+    <section class="sec bar" id="bar" data-cam="bar">
+      <div class="col col-left">
+        <p class="eyebrow mono">03 — The bar · B1, 2-chōme</p>
+        <h2>Twelve seats. <em>One rule</em> you’ll actually keep.</h2>
+        <p class="lede">We are a listening bar in the old kissa tradition: the records are the menu, the speakers are the view, and conversation happens between sides. Sit down, order something brown, and let a whole album go by.</p>
+      </div>
+      <div class="bar-grid">
+        <article class="rule">
+          <p class="mono k">House rule</p>
+          <p class="big">No phones on the counter.</p>
+          <p class="small">Put it in the drawer under your seat. You will get it back at the end of the side.</p>
+        </article>
+        <article>
+          <p class="mono k">Hours</p>
+          <p class="mid">Wed — Sun<br>19:00 — 02:00</p>
+          <p class="small">Last side goes on at 01:30. Closed Mondays, Tuesdays and whenever the owner is digging in Osaka.</p>
+        </article>
+        <article>
+          <p class="mono k">Seats</p>
+          <p class="mid">12 at the counter</p>
+          <p class="small">No standing, no tables, no groups over four. Six seats are held for walk-ins every night.</p>
+        </article>
+        <article>
+          <p class="mono k">Requests</p>
+          <p class="mid">On paper, not out loud</p>
+          <p class="small">Write it on the card by your glass. Both sides, always. We never skip a track.</p>
+        </article>
+      </div>
+      <div class="stats">
+        <div><b>12</b><span class="mono">seats</span></div>
+        <div><b>4,800</b><span class="mono">records on the wall</span></div>
+        <div><b>1</b><span class="mono">turntable</span></div>
+        <div><b>0</b><span class="mono">playlists</span></div>
+      </div>
+    </section>
+
+    <!-- 04 · Catalogue -->
+    <section class="sec catalogue" id="catalogue" data-cam="cat">
+      <div class="cat-head">
+        <p class="eyebrow mono">04 — Low Frequency Records · Catalogue</p>
+        <h2>Pressed for <em>the room</em> first.</h2>
+        <p class="lede">Every release on the label is played here before it is cut. If it can’t hold twelve strangers quiet for a whole side, it doesn’t get a number.</p>
+      </div>
+      <div class="sleeves">
+        <article class="sleeve" data-img="aubergine"><div class="sl-art"><div class="sl-disc"></div><div class="sl-cover"></div></div><p class="mono sl-cat">LF-011 · 2026</p><h3>Aubergine Hours</h3><p class="sl-by">Kazu Nomura &amp; The Late Room</p><p class="mono sl-st on">Pre-order</p></article>
+        <article class="sleeve" data-img="tidal"><div class="sl-art"><div class="sl-disc"></div><div class="sl-cover"></div></div><p class="mono sl-cat">LF-010 · 2025</p><h3>Tidal Room</h3><p class="sl-by">Hiromi Sato</p><p class="mono sl-st">In stock</p></article>
+        <article class="sleeve" data-img="counter"><div class="sl-art"><div class="sl-disc"></div><div class="sl-cover"></div></div><p class="mono sl-cat">LF-009 · 2025</p><h3>Counter Culture</h3><p class="sl-by">Night Crate Ensemble</p><p class="mono sl-st">Repress · May</p></article>
+        <article class="sleeve" data-img="rain"><div class="sl-art"><div class="sl-disc"></div><div class="sl-cover"></div></div><p class="mono sl-cat">LF-008 · 2024</p><h3>Shimokita Rain</h3><p class="sl-by">Yuki Mori</p><p class="mono sl-st off">Sold out</p></article>
+        <article class="sleeve" data-img="valves"><div class="sl-art"><div class="sl-disc"></div><div class="sl-cover"></div></div><p class="mono sl-cat">LF-007 · 2024</p><h3>Warm Valves</h3><p class="sl-by">The Low Hours</p><p class="mono sl-st">In stock</p></article>
+        <article class="sleeve" data-img="geometry"><div class="sl-art"><div class="sl-disc"></div><div class="sl-cover"></div></div><p class="mono sl-cat">LF-006 · 2023</p><h3>Offbeat Geometry</h3><p class="sl-by">Mika Arai Quartet</p><p class="mono sl-st off">Sold out</p></article>
+      </div>
+    </section>
+
+    <!-- 05 · Record club -->
+    <section class="sec club" id="club" data-cam="club">
+      <div class="col col-left">
+        <p class="eyebrow mono">05 — Record club</p>
+        <h2>A seat that’s saved. A record that <em>arrives.</em></h2>
+        <p class="lede">Members hear every pressing before it reaches the wall, and keep a standing claim on the counter. Cancel whenever — the records are yours to keep.</p>
+      </div>
+      <div class="tiers">
+        <article class="tier">
+          <header><p class="mono k">Sleeve</p><p class="price">¥2,800<span class="mono">/ month</span></p></header>
+          <ul><li>Every LF pressing, mailed flat</li><li>Liner notes written at the counter</li><li>10% off anything on the wall</li></ul>
+          <a class="btn btn-ghost" href="#visit" data-magnetic>Join Sleeve</a>
+        </article>
+        <article class="tier tier-lit">
+          <header><p class="mono k">Counter <span class="tag">Most kept</span></p><p class="price">¥6,400<span class="mono">/ month</span></p></header>
+          <ul><li>Everything in Sleeve</li><li>One reserved seat a month, any night</li><li>First pick of the test pressings</li><li>Your request played before 21:00</li></ul>
+          <a class="btn btn-solid" href="#visit" data-magnetic>Join Counter</a>
+        </article>
+        <article class="tier">
+          <header><p class="mono k">Crate</p><p class="price">¥48,000<span class="mono">/ year</span></p></header>
+          <ul><li>Everything in Counter</li><li>A private listening hour for you and three friends</li><li>Your name on a spine on the wall</li></ul>
+          <a class="btn btn-ghost" href="#visit" data-magnetic>Speak to us</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 06 · Visit / footer -->
+    <footer class="sec visit" id="visit" data-cam="end">
+      <div class="visit-inner">
+        <p class="eyebrow mono">06 — Tonight</p>
+        <h2 class="foot-title">Doors at seven.<br><em>Needle</em> at five past.</h2>
+        <div class="foot-cta">
+          <a class="btn btn-solid" href="#top" data-magnetic>Reserve a seat</a>
+          <a class="btn btn-ghost" href="#club" data-magnetic>Join the record club</a>
+        </div>
+        <div class="foot-cols">
+          <p class="mono">Low Frequency<br>B1, 2-14-7 Kitazawa<br>Setagaya-ku, Tokyo</p>
+          <p class="mono">Wed — Sun · 19:00 — 02:00<br>Walk-ins from 19:00<br>Reservations up to four</p>
+          <p class="mono"><a href="#top">Instagram</a><br><a href="#top">Bandcamp</a><br><a href="#top">Newsletter</a></p>
+          <p class="mono colophon">Every sound on this page is synthesised live with the Web Audio API — no samples, no streams. © Low Frequency Records K.K.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Projected over the 3D record -->
+  <div class="fx">
+  <div class="scratch" data-cursor="drag" data-cursor-label="Scratch" aria-label="Drag the record to scratch" role="slider" aria-valuetext="record"></div>
+  <div class="hint" aria-hidden="true">
+    <svg viewBox="0 0 200 200">
+      <defs><path id="hintPath" d="M100,100 m-92,0 a92,92 0 1,1 184,0 a92,92 0 1,1 -184,0"/></defs>
+      <text><textPath href="#hintPath" startOffset="0">HOLD &amp; DRAG TO SCRATCH · LET GO AND IT RIDES AGAIN · HOLD &amp; DRAG TO SCRATCH · LET GO AND IT RIDES AGAIN ·</textPath></text>
+    </svg>
+  </div>
+  <div class="hint-chip mono" aria-hidden="true"><span class="hand"></span>Drag the record</div>
+  <svg class="leader" aria-hidden="true"><path d=""/><circle r="3.5"/></svg>
+  </div>
+
+  <div class="player" role="region" aria-label="Deck">
+    <button class="pp" type="button" aria-label="Play" data-cursor="link"><span class="pi" aria-hidden="true"></span></button>
+    <div class="now"><span class="mono np-k">Now on the deck</span><span class="np-t">A1 · Last Train, Shimokita</span></div>
+    <div class="rpm mono" role="group" aria-label="Speed"><button type="button" class="on" data-rpm="1">33</button><button type="button" data-rpm="1.35">45</button></div>
+  </div>
+  <div class="toast mono" role="status"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

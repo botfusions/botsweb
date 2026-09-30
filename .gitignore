@@ -1,0 +1,9 @@
+node_modules
+dist
+.env
+.env.local
+assets/raw
+assets/src
+assets/*.log
+shots
+.claude

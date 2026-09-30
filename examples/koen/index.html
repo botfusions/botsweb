@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kōen 紅園 — One tree, four seasons</title>
+  <meta name="description" content="A bonsai nursery in Ōmiya, Saitama. Our oldest maple has seen 180 autumns. Scroll to turn its year.">
+  <meta name="theme-color" content="#f1ece2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect x=%224%22 y=%223%22 width=%2224%22 height=%2226%22 rx=%223%22 fill=%22%23c8452f%22/%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%227%22 fill=%22none%22 stroke=%22%23f8efe4%22 stroke-width=%222.2%22/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="brush" x="-5%" y="-40%" width="110%" height="180%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.035 0.9" numOctaves="3" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="brush-soft" x="-5%" y="-40%" width="110%" height="180%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.02 0.6" numOctaves="2" seed="3" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="4"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-enso"><img data-src="img/koen/enso.webp" alt=""><p class="loader-seal" aria-hidden="true"><span>紅</span><span>園</span></p></div>
+    <p class="loader-line">Preparing the garden <span class="loader-pct">0</span></p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Kōen, home">
+      <span class="seal" aria-hidden="true"><i>紅</i><i>園</i></span>
+      <span class="brand-name">Kōen<small>Bonsai · Ōmiya</small></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#seasons">Seasons</a>
+      <a href="#nursery">Nursery</a>
+      <a href="#craft">Craft</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-line" href="#visit" data-magnetic>Reserve a morning</a>
+  </header>
+
+  <main id="top">
+    <!-- ── Hero ─────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <p class="eyebrow">Bonsai nursery <i></i> Ōmiya, Saitama <i></i> Since 1846</p>
+        <h1 id="hero-title" class="hero-title">
+          <span class="ln">This tree</span>
+          <span class="ln">has seen</span>
+          <span class="ln"><em>180 autumns.</em></span>
+        </h1>
+        <p class="hero-sub">A Japanese maple grown from seed in an Edo rice bowl, the year Emperor Kōmei took the throne. It is older than Japan's railways, its constitution and its yen — and every year it becomes four different trees.</p>
+        <div class="hero-cta">
+          <a class="btn btn-ink" href="#nursery" data-magnetic>Adopt a tree</a>
+          <a class="btn btn-line" href="#seasons" data-magnetic>Turn the year</a>
+        </div>
+      </div>
+      <p class="hero-vert" aria-hidden="true">一本の木、四つの季節</p>
+      <ul class="hint" aria-label="How to explore">
+        <li><b>Scroll</b> to turn the year</li>
+        <li><b>Drag</b> the dial</li>
+        <li><b class="hint-touch">Touch</b> the tree</li>
+      </ul>
+    </section>
+
+    <!-- ── Four seasons (pinned) ─────────────────────────── -->
+    <section class="seasons" id="seasons" aria-label="Four seasons">
+      <div class="seasons-pin">
+        <p class="kicker">The year, in four trees <span class="kicker-jp">四季</span></p>
+        <ol class="rail" aria-hidden="true">
+          <li data-i="0"><b>春</b><span>haru</span><em>三月—五月</em></li>
+          <li data-i="1"><b>夏</b><span>natsu</span><em>六月—八月</em></li>
+          <li data-i="2"><b>秋</b><span>aki</span><em>九月—十一月</em></li>
+          <li data-i="3"><b>冬</b><span>fuyu</span><em>十二月—二月</em></li>
+        </ol>
+        <div class="season-copy">
+          <article data-i="2">
+            <p class="s-num">01 <i></i> Autumn · 紅葉 kōyō</p>
+            <h2>Nine days <em>of red.</em></h2>
+            <p>When the nights fall below eight degrees, the maple stops making green. The sugar trapped in each leaf turns to anthocyanin, and for nine days in November the canopy is the colour of our seal. Then it lets go — all of it, onto the moss.</p>
+            <p class="s-note"><b>In the garden</b> We don't rake. The leaves feed the moss until the first frost.</p>
+          </article>
+          <article data-i="3">
+            <p class="s-num">02 <i></i> Winter · 寒樹 kanju</p>
+            <h2>The tree, <em>undressed.</em></h2>
+            <p>Bare, it finally shows you the work: every branch placed, every line argued over by five generations of the Kōno family. Winter is when a bonsai is judged — and when it is wired.</p>
+            <p class="s-note"><b>In the garden</b> Frost cloth below −5 °C. Water at noon, never at dusk.</p>
+          </article>
+          <article data-i="0">
+            <p class="s-num">03 <i></i> Spring · 芽吹き mebuki</p>
+            <h2>Lighter <em>than air.</em></h2>
+            <p>The buds split in the second week of April and the first leaves come out folded, the green of a lime peel and almost translucent. For a fortnight the tree weighs nothing. Somewhere upwind, the cherries are letting go.</p>
+            <p class="s-note"><b>In the garden</b> Water twice a day. No feeding until the new leaves harden.</p>
+          </article>
+          <article data-i="1">
+            <p class="s-num">04 <i></i> Summer · 深緑 shinryoku</p>
+            <h2>Storing <em>the light.</em></h2>
+            <p>By June the canopy closes and darkens. This is the working season: the tree banks sugar for an autumn it cannot see coming, and we pinch every new shoot back to two leaves so it grows finer, never bigger.</p>
+            <p class="s-note"><b>In the garden</b> Shade cloth after eleven. Three waterings on the hottest days.</p>
+          </article>
+        </div>
+        <div class="season-progress" aria-hidden="true"><i></i></div>
+        <p class="season-glyph" aria-hidden="true"><span data-i="0">春</span><span data-i="1">夏</span><span data-i="2">秋</span><span data-i="3">冬</span></p>
+      </div>
+    </section>
+
+    <div class="brush-divider bd-right" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M8 24 C 180 12, 420 30, 640 19 S 1020 14, 1192 22 L1190 26 C 1010 22, 820 28, 640 25 S 240 30, 10 28 Z" filter="url(#brush)"/></svg>
+    </div>
+
+    <!-- ── The nursery ───────────────────────────────────── -->
+    <section class="nursery panel" id="nursery" aria-labelledby="nursery-title">
+      <div class="panel-col">
+        <p class="kicker">The nursery <span class="kicker-jp">預かり</span></p>
+        <h2 id="nursery-title">Trees looking for their next <em>hundred years.</em></h2>
+        <p class="lede">We don't sell bonsai. We place them — with people who will keep them longer than we will. Every adoption includes two house visits a year, a care calendar written for your light, and a winter room at the nursery whenever your tree needs one.</p>
+        <ol class="catalogue">
+          <li data-img="img/koen/pine.webp">
+            <span class="c-no">No. 031</span>
+            <span class="c-name"><b>黒松</b> Kuromatsu <small>Japanese black pine · formal upright</small></span>
+            <span class="c-age">120 yrs<small>74 cm</small></span>
+            <span class="c-price">¥2,800,000</span>
+          </li>
+          <li data-img="img/koen/juniper.webp">
+            <span class="c-no">No. 044</span>
+            <span class="c-name"><b>真柏</b> Shimpaku <small>Chinese juniper · driftwood style</small></span>
+            <span class="c-age">95 yrs<small>52 cm</small></span>
+            <span class="c-price">¥1,650,000</span>
+          </li>
+          <li data-img="img/koen/azalea.webp">
+            <span class="c-no">No. 052</span>
+            <span class="c-name"><b>皐月</b> Satsuki <small>Satsuki azalea · informal upright</small></span>
+            <span class="c-age">60 yrs<small>41 cm</small></span>
+            <span class="c-price">¥680,000</span>
+          </li>
+          <li data-img="img/koen/quince.webp">
+            <span class="c-no">No. 068</span>
+            <span class="c-name"><b>長寿梅</b> Chōjubai <small>Dwarf flowering quince · shōhin</small></span>
+            <span class="c-age">45 yrs<small>19 cm</small></span>
+            <span class="c-price">¥380,000</span>
+          </li>
+          <li class="c-ours">
+            <span class="c-no">No. 001</span>
+            <span class="c-name"><b>紅葉</b> Momiji <small>Japanese maple · the tree on this page</small></span>
+            <span class="c-age">180 yrs<small>68 cm</small></span>
+            <span class="c-price">Never</span>
+          </li>
+        </ol>
+        <p class="fine">Viewings by appointment. An adoption takes three visits: we need to meet you, and the tree needs to meet your balcony.</p>
+        <a class="btn btn-ink" href="#visit" data-magnetic>Arrange a viewing</a>
+      </div>
+    </section>
+
+    <!-- ── The craft (pinned) ────────────────────────────── -->
+    <section class="craft" id="craft" aria-label="The craft">
+      <div class="craft-pin">
+        <p class="kicker">The craft <span class="kicker-jp">手入れ</span></p>
+        <h2 class="craft-title">Three tools. <em>One century at a time.</em></h2>
+        <div class="craft-steps">
+          <article data-i="0">
+            <p class="s-num">I <i></i> June</p>
+            <h3><b>剪定</b> Pruning <small>sentei</small></h3>
+            <p>After the first flush hardens, every shoot is cut back to its first pair of leaves. The tree answers with smaller leaves, shorter nodes and finer twigs. Repeat for a hundred and eighty summers and you get a canopy like lace.</p>
+          </article>
+          <article data-i="1">
+            <p class="s-num">II <i></i> November</p>
+            <h3><b>針金</b> Wiring <small>harigane</small></h3>
+            <p>Annealed copper, wound at forty-five degrees, tells a branch where to grow. The wire stays for one season — long enough to set the line, never long enough to bite the bark.</p>
+          </article>
+          <article data-i="2">
+            <p class="s-num">III <i></i> March</p>
+            <h3><b>植替え</b> Repotting <small>uekae</small></h3>
+            <p>Every third spring, as the buds swell, we lift the tree, comb out a third of its roots and seat it in fresh akadama clay. This maple has been repotted sixty times. The pot is its fourth.</p>
+          </article>
+        </div>
+        <ol class="craft-index" aria-hidden="true"><li>剪定</li><li>針金</li><li>植替え</li></ol>
+      </div>
+    </section>
+
+    <div class="brush-divider bd-left" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M10 20 C 260 26, 480 12, 700 21 S 1030 26, 1190 18 L1192 23 C 1020 30, 860 24, 700 26 S 300 31, 12 25 Z" filter="url(#brush)"/></svg>
+    </div>
+
+    <!-- ── Visit ──────────────────────────────────────────── -->
+    <section class="visit panel" id="visit" aria-labelledby="visit-title">
+      <div class="panel-col">
+        <p class="kicker">Visit <span class="kicker-jp">訪問</span></p>
+        <h2 id="visit-title">Come in any season. <em>Come back in all four.</em></h2>
+        <dl class="facts">
+          <div><dt>Garden</dt><dd>2-24 Bonsai-chō, Kita-ku<br>Saitama 331-0805</dd></div>
+          <div><dt>Getting here</dt><dd>Eight minutes on foot from Ōmiya-kōen Station. Forty minutes from Ueno.</dd></div>
+          <div><dt>Hours</dt><dd>09:00 – 16:30<br>Closed Thursdays and 29 Dec – 3 Jan</dd></div>
+          <div><dt>Momiji mornings</dt><dd>3 – 21 November. Twelve guests a morning, tea on the engawa at eight.</dd></div>
+        </dl>
+        <div class="visit-cta">
+          <a class="btn btn-ink" href="#top" data-magnetic>Reserve a morning</a>
+          <a class="btn btn-line" href="#top" data-magnetic>Write to the garden</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <div class="foot-mark">
+        <span class="seal seal-lg" aria-hidden="true"><i>紅</i><i>園</i></span>
+        <p class="foot-line">Five generations, one maple.<br><em>Ōmiya since 1925, Dangozaka before that.</em></p>
+      </div>
+      <nav class="foot-cols" aria-label="Footer">
+        <div><h4>Nursery</h4><a href="#nursery">Trees for adoption</a><a href="#craft">Care &amp; craft</a><a href="#seasons">The four seasons</a></div>
+        <div><h4>Garden</h4><a href="#visit">Visit &amp; hours</a><a href="#visit">Momiji mornings</a><a href="#visit">Winter rooms</a></div>
+        <div><h4>Letters</h4><p>One postcard at each solstice, written by hand in the potting shed.</p><a href="#top">Ask for a postcard →</a></div>
+      </nav>
+    </div>
+    <div class="foot-base">
+      <p>© 2026 Kōen Bonsai 紅園 · In the garden, please don't touch the trees. Here, go ahead.</p>
+      <p class="foot-sekki"></p>
+    </div>
+  </footer>
+
+  <!-- fixed UI -->
+  <div class="dial-wrap">
+    <div class="dial" role="slider" aria-valuemin="0" aria-valuemax="4" aria-label="Season dial"></div>
+    <p class="dial-caption"></p>
+  </div>
+  <div class="callout" aria-hidden="true"><svg><line x1="0" y1="0" x2="0" y2="0"/><circle r="3.5"/></svg><p></p></div>
+  <div class="preview" aria-hidden="true"><img alt=""></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

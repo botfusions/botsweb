@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Maison Sucre — Pâtisserie, rue du Bac, Paris</title>
+  <meta name="description" content="Macarons piped by hand on rue du Bac since 1962. Sugar, almonds, and a little gravity.">
+  <meta name="theme-color" content="#f6d9df">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='11' rx='13' ry='6' fill='%23eea9b6'/%3E%3Crect x='5' y='14' width='22' height='5' rx='2.5' fill='%23fbeee6'/%3E%3Cellipse cx='16' cy='22' rx='13' ry='5.5' fill='%23e39aa9'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-mac" aria-hidden="true"><i class="shell top"></i><i class="fill"></i><i class="shell bot"></i></div>
+    <p class="loader-line">Weighing the almonds</p>
+    <p class="loader-g"><span class="loader-pct">0</span> g <em>of 100 g</em></p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Maison Sucre home">
+      <span class="brand-mark" aria-hidden="true">MS</span>
+      <span class="brand-name">Maison <em>Sucre</em></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#carte">La Carte</a>
+      <a href="#coffret">Build a box</a>
+      <a href="#atelier">L'Atelier</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" type="button" aria-pressed="false" aria-label="Sound"><i></i><i></i><i></i><i></i><span>Sound</span></button>
+      <a class="btn btn-solid nav-cta" href="#coffret" data-magnetic><span>Order a box</span></a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 01 · Hero -->
+    <section class="stage hero" id="top" data-cam="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>Pâtisserie</span><span class="dot"></span><span>44 rue du Bac, Paris 7<sup>e</sup></span><span class="dot"></span><span>Depuis 1962</span></p>
+        <h1 class="title" aria-label="Sugar, almonds, and a little gravity.">
+          <span class="line">Sugar, almonds,</span>
+          <span class="line">and <em class="grav">a little</em></span>
+          <span class="line"><em class="grav">gravity.</em></span>
+        </h1>
+        <p class="sub">Every shell is piped by hand, rested for a night and filled the next morning. Then, now and again, we let them fall — just to watch them land.</p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#coffret" data-magnetic><span>Build a box of six</span></a>
+          <a class="btn btn-ghost" href="#carte" data-magnetic><span>See La Carte</span></a>
+        </div>
+      </div>
+      <ul class="hint" aria-hidden="true">
+        <li><b>Move</b> nudge the pastries</li>
+        <li><b>Drag</b> pick one up &amp; toss it</li>
+        <li><b>Click</b> knock on the marble</li>
+        <li><b>Hold</b> make it rain</li>
+        <li class="hint-touch"><b>Tap</b> knock · <b>Hold</b> rain · <b>Drag</b> toss</li>
+      </ul>
+    </section>
+
+    <!-- 02 · La Carte -->
+    <section class="stage carte" id="carte" data-cam="carte">
+      <div class="menu-card">
+        <p class="eyebrow center">La Carte · Printemps</p>
+        <h2>Today, <em>behind the glass.</em></h2>
+        <p class="menu-note">Hover a line and it will stand up on the counter to be counted.</p>
+        <h3 class="menu-group">Les macarons <span>€2.60 each</span></h3>
+        <ul class="menu">
+          <li data-hop="rose"><span class="sw" style="--c:#e7aab4"></span><span class="nm">Rose &amp; Litchi</span><span class="ds">Rose-petal ganache, a lychee heart</span></li>
+          <li data-hop="pistache"><span class="sw" style="--c:#bfc79a"></span><span class="nm">Pistache de Bronte</span><span class="ds">Sicilian pistachio, a pinch of fleur de sel</span></li>
+          <li data-hop="citron"><span class="sw" style="--c:#efd98c"></span><span class="nm">Citron de Menton</span><span class="ds">Lemon curd, candied zest, no apologies</span></li>
+          <li data-hop="violette"><span class="sw" style="--c:#b6a2c9"></span><span class="nm">Violette-Cassis</span><span class="ds">Blackcurrant jam, crystallised violet</span></li>
+          <li data-hop="chocolat"><span class="sw" style="--c:#7a4b3a"></span><span class="nm">Chocolat Grand Cru</span><span class="ds">70% Venezuelan ganache, cocoa nib</span></li>
+          <li data-hop="vanille"><span class="sw" style="--c:#f1e6cf"></span><span class="nm">Vanille de Tahiti</span><span class="ds">Three pods per litre of cream</span></li>
+        </ul>
+        <h3 class="menu-group">Le reste de la vitrine</h3>
+        <ul class="menu menu-priced">
+          <li data-hop="tart"><span class="nm">Tartelette aux fraises</span><span class="ds">Gariguette strawberries, vanilla crème, sablé breton</span><b>€7.80</b></li>
+          <li data-hop="croissant"><span class="nm">Croissant au beurre</span><span class="ds">AOP Charentes butter, 27 layers, out every 40 minutes</span><b>€2.20</b></li>
+          <li data-hop="berry"><span class="nm">Fraises Gariguette</span><span class="ds">By the punnet, April to June, while they last</span><b>€9 / 250 g</b></li>
+          <li data-hop="cake"><span class="nm">Le Grand Gâteau</span><span class="ds">Three tiers, sugar roses, raspberries — on commission</span><b>from €280</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 · Build a box -->
+    <section class="stage coffret" id="coffret" data-cam="box">
+      <div class="coffret-sticky">
+        <div class="box-panel">
+          <p class="eyebrow">Coffret de six · €24</p>
+          <h2>Build a box. <em>We'll tie the ribbon.</em></h2>
+          <p class="box-lede">Drag any six macarons into the coffret. Mix freely — the only house rule is that no two boxes should ever be the same.</p>
+          <ol class="slots" aria-label="Your box">
+            <li></li><li></li><li></li><li></li><li></li><li></li>
+          </ol>
+          <p class="box-count"><b class="n">0</b> of 6 <span class="box-status">— the box is waiting</span></p>
+          <p class="box-flavours" aria-live="polite"></p>
+          <div class="box-actions">
+            <button class="btn btn-ghost fill-btn" type="button" data-magnetic><span>Fill it for me</span></button>
+            <a class="btn btn-solid order-btn" href="#visit" data-magnetic aria-disabled="true"><span>Order this box — €24</span></a>
+          </div>
+          <button class="reset-btn" type="button">Untie &amp; start again</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · L'Atelier -->
+    <section class="stage atelier" id="atelier" data-cam="atelier">
+      <div class="atelier-copy">
+        <p class="eyebrow">L'Atelier · since 1962</p>
+        <h2>Sixty years on <em>rue du Bac.</em></h2>
+        <p class="lede">Odile Marchand opened the shop in the spring of 1962 with one oven, a copper basin and a recipe she refused to write down. Her granddaughter Camille still whips the meringue in that basin.</p>
+        <p class="body">What changed: the ovens, and the length of the queue on Saturday mornings. What didn't: the whites are aged for three days, the almonds are ground before sunrise, and every shell is piped by hand — by five people who could do it with their eyes closed, and occasionally do.</p>
+        <dl class="stats">
+          <div><dt>3 days</dt><dd>egg whites aged before a single shell is piped</dd></div>
+          <div><dt>4,000</dt><dd>shells piped by hand, every working day</dd></div>
+          <div><dt>24 h</dt><dd>resting in the cold room before we fill them</dd></div>
+        </dl>
+        <p class="sig">— Camille Marchand, <em>troisième génération</em></p>
+      </div>
+    </section>
+
+    <!-- 05 · Visit -->
+    <section class="stage visit" id="visit" data-cam="visit">
+      <div class="visit-head">
+        <p class="eyebrow">Visit · 44 rue du Bac</p>
+        <h2>Come hungry. <em>Leave with a box.</em></h2>
+      </div>
+      <div class="visit-card">
+        <div>
+          <h3>The shop</h3>
+          <p>44 rue du Bac<br>75007 Paris<br><span class="muted">Métro Rue du Bac, ligne 12</span></p>
+        </div>
+        <div>
+          <h3>Hours</h3>
+          <p>Tuesday – Saturday &nbsp;8:00 – 19:30<br>Sunday &nbsp;8:00 – 13:00<br><span class="muted">Monday closed — the ovens rest</span></p>
+        </div>
+        <div>
+          <h3>Orders &amp; commissions</h3>
+          <p>bonjour@maisonsucre.fr<br>+33 1 45 48 19 62<br><span class="muted">Cakes need ten days' notice</span></p>
+        </div>
+        <a class="btn btn-solid" href="#coffret" data-magnetic><span>Order a box for collection</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <p class="foot-mark">Maison <em>Sucre</em></p>
+      <form class="letter" onsubmit="return false">
+        <label for="lettre">La Lettre Sucrée — one letter a season, first taste of new flavours.</label>
+        <div class="letter-row"><input id="lettre" type="email" placeholder="your@email.fr" autocomplete="email"><button class="btn btn-solid" type="button"><span>Subscribe</span></button></div>
+      </form>
+      <div class="foot-row">
+        <span>© 1962 – 2026 Maison Sucre, Paris</span>
+        <span class="foot-links"><a href="#carte">La Carte</a><a href="#coffret">Coffrets</a><a href="#atelier">L'Atelier</a><a href="#visit">Visit</a></span>
+        <span>Made with butter, not margarine.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

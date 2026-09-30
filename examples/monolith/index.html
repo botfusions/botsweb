@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Monolith — Houses that answer to the sun</title>
+  <meta name="description" content="Monolith Arquitetos, Lisbon and Oslo. Houses for cliffs, fjords and fault lines, drawn from the sun's path first.">
+  <meta name="theme-color" content="#ecebe6">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@1,300;1,400&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <svg class="loader-dial" viewBox="0 0 240 132" aria-hidden="true">
+      <path class="loader-arc" d="M10 120 A110 110 0 0 1 230 120" />
+      <line x1="0" y1="120" x2="240" y2="120" class="loader-horizon" />
+      <g class="loader-ticks"></g>
+      <circle class="loader-sun" r="5" cx="10" cy="120" />
+    </svg>
+    <p class="loader-line"><span class="loader-label">Plotting the sun path</span><span class="loader-pct">00</span></p>
+    <p class="loader-meta mono">Cabo Espichel · 38°25′N 9°13′W · 21 June</p>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Monolith home">
+      <i class="brand-mark" aria-hidden="true"></i><span>Monolith</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#works"><span class="mono">01</span>Works</a>
+      <a href="#cliff"><span class="mono">02</span>The cliff house</a>
+      <a href="#principles"><span class="mono">03</span>Principles</a>
+      <a href="#studio"><span class="mono">04</span>Studio</a>
+    </nav>
+    <a class="btn btn-line" href="#contact" data-magnetic>Commission a house <span aria-hidden="true">→</span></a>
+  </header>
+
+  <!-- Sun HUD: always present, it is the page's main control -->
+  <div class="sun-tag" aria-hidden="true"><span class="sun-tag-time">18:52</span><span class="sun-tag-hint">Drag the sun</span></div>
+  <div class="hud" aria-label="Time of day">
+    <div class="hud-read">
+      <p class="hud-time" aria-live="off">18:52</p>
+      <p class="hud-meta mono"><span class="hud-phase">Afternoon</span><span>Az <b class="hud-az">283°</b></span><span>Alt <b class="hud-alt">21°</b></span><span class="hud-shw">Shadow <b class="hud-sh">×0.4</b></span></p>
+    </div>
+    <button class="play" type="button" aria-label="Play the whole day" data-cursor="label" data-cursor-label="Play"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-play" d="M5 3.5v9l7.5-4.5z"/><path class="i-pause" d="M4.5 3.5h2.5v9H4.5zM9 3.5h2.5v9H9z"/></svg><span class="mono">Play the day</span></button>
+    <div class="daybar" role="slider" tabindex="0" aria-label="Time of day on 21 June" aria-valuemin="5.5" aria-valuemax="22.75" aria-valuenow="18.9" aria-valuetext="18:52">
+      <div class="daybar-sky"></div>
+      <div class="daybar-ticks"></div>
+      <div class="daybar-knob"><i></i></div>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- 00 · Hero -->
+    <section class="hero" data-k="hero">
+      <div class="grid">
+        <p class="hero-meta mono col-a">Monolith Arquitetos<br>Lisboa — Oslo<br>Est. 2011</p>
+        <p class="hero-meta mono col-b">Houses for cliffs, fjords<br>and fault lines</p>
+        <h1 class="hero-title">
+          <span class="line"><span>Houses that</span></span>
+          <span class="line"><span>answer <em>to the sun.</em></span></span>
+        </h1>
+        <p class="hero-sub">Before we draw a wall, we draw the sun's path over the site — every hour of the longest day. This is Casa do Penhasco, forty metres above the Atlantic. Take the sun and move it.</p>
+      </div>
+      <p class="scroll-cue mono" aria-hidden="true"><i></i>Scroll — noon until dark</p>
+    </section>
+
+    <!-- 01 · Works -->
+    <section class="works" id="works" data-k="works">
+      <div class="grid">
+        <header class="sec-head">
+          <p class="mono sec-num">01 — Selected works</p>
+          <h2>Five houses, <em>five kinds of light.</em></h2>
+        </header>
+        <ol class="work-list">
+          <li class="work" data-img="" data-self>
+            <span class="w-num mono">01</span>
+            <span class="w-name">Casa do Penhasco</span>
+            <span class="w-place">Cabo Espichel, PT</span>
+            <span class="w-light mono"><span class="wl-a">Built for 19:41, 21 June</span><span class="wl-b">On screen now — scroll for the study →</span></span>
+            <span class="w-year mono">2024</span>
+          </li>
+          <li class="work" data-img="stal">
+            <span class="w-num mono">02</span>
+            <span class="w-name">Hytte Stål</span>
+            <span class="w-place">Lofoten, NO</span>
+            <span class="w-light mono">Built for the midnight sun</span>
+            <span class="w-year mono">2023</span>
+          </li>
+          <li class="work" data-img="mertola">
+            <span class="w-num mono">03</span>
+            <span class="w-name">Casa Mértola</span>
+            <span class="w-place">Alentejo, PT</span>
+            <span class="w-light mono">Built against 44 °C noon</span>
+            <span class="w-year mono">2022</span>
+          </li>
+          <li class="work" data-img="ulvik">
+            <span class="w-num mono">04</span>
+            <span class="w-name">Fjordvilla Ulvik</span>
+            <span class="w-place">Hardanger, NO</span>
+            <span class="w-light mono">Built for four hours of winter sun</span>
+            <span class="w-year mono">2021</span>
+          </li>
+          <li class="work" data-img="lajes">
+            <span class="w-num mono">05</span>
+            <span class="w-name">Casa Lajes</span>
+            <span class="w-place">Pico, Azores, PT</span>
+            <span class="w-light mono">Built for the blue hour</span>
+            <span class="w-year mono">2019</span>
+          </li>
+        </ol>
+        <p class="works-note mono">Hover a project · 38 houses built since 2011, none of them on flat ground</p>
+      </div>
+      <figure class="work-reveal" aria-hidden="true"><div class="work-reveal-in"></div><figcaption class="mono"></figcaption></figure>
+    </section>
+
+    <!-- 02 · The cliff house -->
+    <section class="cliff" id="cliff">
+      <div class="cliff-intro" data-k="cliffIntro">
+        <div class="grid">
+          <header class="sec-head">
+            <p class="mono sec-num">02 — Case study</p>
+            <h2>The house <em>on the cliff.</em></h2>
+          </header>
+          <dl class="facts">
+            <div><dt class="mono">Site</dt><dd>Limestone shelf, 42 m above the Atlantic</dd></div>
+            <div><dt class="mono">Area</dt><dd>310 m² on two floors</dd></div>
+            <div><dt class="mono">Structure</dt><dd>Two walls, one 6.4 m cantilever</dd></div>
+            <div><dt class="mono">Completed</dt><dd>Spring 2024, after 31 months</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <article class="step step-plan" data-k="plan">
+        <div class="step-card">
+          <p class="mono step-num">A — Plan, 1:200</p>
+          <h3>One bar, laid <em>along the contour.</em></h3>
+          <p>The buildable shelf is eleven metres deep. We put the whole programme on it as a single bar, turned eleven degrees off the cliff edge so the living floor faces 240° — the bearing of the last light on the longest day.</p>
+          <p class="step-note mono">Roof lifted off at +38.10 · Sun at 17:18, 41° above the sea</p>
+        </div>
+      </article>
+
+      <article class="step step-section" data-k="section">
+        <div class="step-card">
+          <p class="mono step-num">B — Section A–A</p>
+          <h3>Two slabs <em>and a promise.</em></h3>
+          <p>The upper floor bears on two concrete walls pinned nine metres into the rock. The lower slab cantilevers 6.4 metres toward the sea and carries the pool like a tray. Nothing touches the cliff face that doesn't have to.</p>
+          <p class="step-note mono">Cut through the pool and living room · looking north-east</p>
+        </div>
+      </article>
+
+      <article class="step step-detail" data-k="detail">
+        <div class="step-card">
+          <p class="mono step-num">C — Detail, 19:18</p>
+          <h3>Where the water <em>meets the air.</em></h3>
+          <p>The pool's west wall is a single pane of 19 mm laminated glass, set flush with a 6 mm overflow. At golden hour the water keeps the sun for eleven minutes after it has left the terrace.</p>
+          <p class="step-note mono">Golden hour · sun at 291°, 11° above the sea</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- 03 · Principles -->
+    <section class="principles" id="principles" data-k="principles">
+      <div class="grid">
+        <header class="sec-head">
+          <p class="mono sec-num">03 — Principles</p>
+          <h2>Four rules we haven't <em>broken since 2011.</em></h2>
+        </header>
+        <ol class="rules">
+          <li><span class="r-num">01</span><div><h3>Orientation before form.</h3><p>We plot the sun over the site for a full year before a single wall is drawn. The plan follows the light — never the other way round.</p></div></li>
+          <li><span class="r-num">02</span><div><h3>One material, honestly.</h3><p>Board-marked concrete poured against Portuguese pine. It takes the grain of the wood, the colour of the local aggregate and, over decades, the weather. We don't paint it.</p></div></li>
+          <li><span class="r-num">03</span><div><h3>Shadow is a material.</h3><p>A deep overhang does more than any glass coating. We design the shadows first: where they fall at noon in July, how far they reach at four in December.</p></div></li>
+          <li><span class="r-num">04</span><div><h3>Touch the ground lightly.</h3><p>Extreme sites are fragile sites. We stand on as few points as possible, rebuild with the rock we excavate, and leave the cliff looking as if we were never there.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 04 · Studio -->
+    <section class="studio" id="studio" data-k="studio">
+      <div class="grid">
+        <header class="sec-head">
+          <p class="mono sec-num">04 — Studio</p>
+          <h2>Two studios, <em>2,750 km of daylight apart.</em></h2>
+        </header>
+        <p class="studio-lede">Lisbon gets 2,800 hours of sun a year. Oslo gets 1,670 — and a June night that never quite gets dark. We work across both, so every house is argued over by people who treat daylight very differently.</p>
+        <figure class="studio-img"><img src="/img/monolith/studio.webp" alt="Concrete massing models on an oak table in the Lisbon studio, crossed by a shaft of late sun" loading="lazy"><figcaption class="mono">Lisbon studio, Rua das Janelas Verdes — 17:20</figcaption></figure>
+        <div class="stats">
+          <div><b>38</b><span class="mono">houses built</span></div>
+          <div><b>14</b><span class="mono">architects &amp; engineers</span></div>
+          <div><b>2</b><span class="mono">studios, one drawing set</span></div>
+          <div><b>0</b><span class="mono">flat sites</span></div>
+        </div>
+        <ul class="awards">
+          <li><span class="mono">2024</span><span>Casa do Penhasco</span><span>European Prize for Coastal Architecture — Shortlist</span></li>
+          <li><span class="mono">2023</span><span>Hytte Stål</span><span>Nordic Daylight Award — Winner</span></li>
+          <li><span class="mono">2022</span><span>Casa Mértola</span><span>Prémio Luz de Arquitetura — Winner</span></li>
+          <li><span class="mono">2021</span><span>Fjordvilla Ulvik</span><span>International Concrete Design Awards — Commendation</span></li>
+          <li><span class="mono">2019</span><span>Casa Lajes</span><span>Atlantic Houses Biennale — Selected</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 05 · Contact -->
+    <section class="contact" id="contact" data-k="contact">
+      <div class="grid">
+        <p class="mono sec-num">05 — Commissions</p>
+        <h2 class="contact-title">Tell us where the sun <em>rises on your site.</em></h2>
+        <p class="contact-lede">Coordinates are enough to begin. Send us a pin and we'll send back a sun study of your land — every hour, every season — before we ever talk about a house.</p>
+        <div class="contact-cta">
+          <a class="btn btn-solid" href="mailto:commissions@monolith.arq?subject=A%20site%20for%20a%20house" data-magnetic>Send us a pin <span aria-hidden="true">→</span></a>
+          <a class="btn btn-line" href="mailto:studio@monolith.arq" data-magnetic>studio@monolith.arq</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot" data-k="footer">
+      <div class="grid">
+        <div class="foot-office"><p class="mono">Lisboa</p><p>Rua das Janelas Verdes 38<br>1200-691 Lisboa</p><p class="mono foot-clock" data-off="0">—</p></div>
+        <div class="foot-office"><p class="mono">Oslo</p><p>Tollbugata 24<br>0152 Oslo</p><p class="mono foot-clock" data-off="1">—</p></div>
+        <nav class="foot-links" aria-label="Footer"><a href="#works">Works</a><a href="#principles">Principles</a><a href="#studio">Journal</a><a href="#contact">Careers</a><a href="#contact">Press kit</a></nav>
+        <p class="foot-mark">Monolith</p>
+        <p class="foot-legal mono">© 2026 Monolith Arquitetos Lda. · Time shown is the sun's, not yours.</p>
+      </div>
+    </footer>
+  </main>
+
+  <div class="anchors" aria-hidden="true"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hangar Nine — HN-9 “Warden” Test-Pilot Program</title>
+  <meta name="description" content="HN-9 “Warden”. Forty tons. One pilot. Hangar Nine is recruiting six test pilots for Cohort 09.">
+  <meta name="theme-color" content="#07080a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Cpath d=%22M16 2 29 9.5v13L16 30 3 22.5v-13Z%22 fill=%22%23ffb000%22/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="is-cold">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="flash" aria-hidden="true"></div>
+  <div class="scrim scrim-l" aria-hidden="true"></div><div class="scrim scrim-r" aria-hidden="true"></div><div class="scrim scrim-b" aria-hidden="true"></div>
+
+  <!-- Loader: firmware boot behind two blast-door halves -->
+  <div class="loader" role="status" aria-live="polite">
+    <div class="ld-door ld-top"></div>
+    <div class="ld-door ld-bot"></div>
+    <div class="ld-bar"><i></i></div>
+    <div class="ld-in">
+      <div class="ld-up">
+        <div class="ld-head mono"><span>Hangar Nine Heavy Systems</span><span>HN-9 FW 4.12.0</span></div>
+        <p class="ld-num"><span class="ld-pct">000</span><i>%</i></p>
+      </div>
+      <ol class="ld-log mono ld-down">
+        <li data-at="0.02">› Bay 09 link established</li>
+        <li data-at="0.2">› Mounting chassis mesh A7-019</li>
+        <li data-at="0.45">› Loading actuator map ··· 41/41</li>
+        <li data-at="0.7">› Recon drone RD-3 docked</li>
+        <li data-at="0.92">› Warming shaders</li>
+        <li data-at="1">› Standby. Awaiting pilot.</li>
+      </ol>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Hangar Nine home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2 29 9.5v13L16 30 3 22.5v-13Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M19.5 17.2a4.2 4.2 0 1 1 .6-2.2V21l-2.8 2.4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      <span>Hangar<b>Nine</b></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#warden">The Warden</a>
+      <a href="#systems">Systems</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#program">Program</a>
+    </nav>
+    <div class="nav-r">
+      <button class="snd mono" type="button" aria-pressed="false" aria-label="Toggle sound">Snd <span class="snd-bars"><i></i><i></i><i></i><i></i></span><span class="snd-state">Off</span></button>
+      <a class="btn btn-amber" href="#apply" data-magnetic>Apply · Cohort 09</a>
+    </div>
+  </header>
+
+  <!-- HUD frame: boots during power-up -->
+  <div class="hud" aria-hidden="true">
+    <i class="hc tl"></i><i class="hc tr"></i><i class="hc bl"></i><i class="hc br"></i>
+    <div class="hud-top mono"><span class="hud-id">HN-9 · A7-019</span><span class="hud-sep"></span><span class="hud-state">Reactor cold</span><span class="hud-sep"></span><span class="hud-clock">03:12:07</span></div>
+    <div class="hud-side mono">
+      <div class="rd"><span>RCTR</span><b class="rd-rctr">0.3%</b><i><em style="--v:.02"></em></i></div>
+      <div class="rd"><span>CORE</span><b class="rd-core">31°C</b><i><em style="--v:.05"></em></i></div>
+      <div class="rd"><span>HYD</span><b class="rd-hyd">0 bar</b><i><em style="--v:0"></em></i></div>
+      <div class="rd"><span>SYNC</span><b class="rd-sync">—</b><i><em style="--v:0"></em></i></div>
+    </div>
+    <div class="hud-scan"></div>
+    <div class="hud-reticle"><i></i><i></i><i></i><i></i><span class="mono">HN-9 WARDEN<br><b>PILOT SEAT · VACANT</b></span></div>
+    <ol class="hud-boot mono"></ol>
+  </div>
+
+  <!-- Hotspot markers (positioned from 3D) -->
+  <div class="spots" role="group" aria-label="Systems hotspots"></div>
+  <svg class="leader" aria-hidden="true"><line x1="0" y1="0" x2="0" y2="0"/><circle r="3"/></svg>
+  <div class="ruler" aria-hidden="true"><i class="ruler-line"></i><span class="ruler-top mono">11.4 m</span><span class="ruler-bot mono">0.0</span></div>
+
+  <!-- Press-and-hold gauge that follows the pointer in the hero -->
+  <div class="hold" aria-hidden="true">
+    <svg viewBox="0 0 100 100"><circle class="h-track" cx="50" cy="50" r="44"/><circle class="h-fill" cx="50" cy="50" r="44" pathLength="1"/></svg>
+    <span class="h-label mono">Hold</span>
+  </div>
+
+  <main id="top">
+    <section class="sec hero" data-shot="hero">
+      <div class="pin">
+        <div class="hero-copy">
+          <p class="eyebrow mono"><span class="blink"></span>Northfield Proving Ground · Bay 09 · 03:12 local</p>
+          <h1 class="title" aria-label="HN-9 Warden"><span class="t1">HN-9</span><span class="t2"><q>Warden</q></span></h1>
+          <p class="tag">Forty tons. <em>One pilot.</em></p>
+          <p class="lede">Hangar Nine is recruiting six test pilots for the Warden’s final certification year. It has been asleep since the last shift. Wake it up.</p>
+        </div>
+        <div class="ignite">
+          <button class="gauge" type="button" aria-label="Press and hold to power up the Warden">
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <circle class="g-ticks" cx="80" cy="80" r="74"/>
+              <circle class="g-track" cx="80" cy="80" r="64"/>
+              <circle class="g-fill" cx="80" cy="80" r="64" pathLength="1"/>
+            </svg>
+            <span class="g-core"><span class="g-label">Hold to<br>initiate</span><span class="g-pct mono">00</span></span>
+          </button>
+          <div class="ignite-copy">
+            <p class="ignite-title mono">Cold start</p>
+            <p class="ignite-hint">Press and hold anywhere — or hold <kbd>Space</kbd> — to bring the reactor up.</p>
+          </div>
+        </div>
+        <p class="scroll-cue mono"><span><b>Move</b> to aim the drone’s searchlight</span><span><b>Scroll</b> to walk around it</span><i></i></p>
+      </div>
+    </section>
+
+    <section class="sec power" id="warden" data-shot="power">
+      <div class="pin">
+        <div class="block block-r">
+          <p class="kicker mono">01 — Cold start</p>
+          <h2>Standby to standing weight in <em>9.2&nbsp;seconds.</em></h2>
+          <p class="body">The Warden idles at 0.3% reactor draw — just enough to keep the gyros warm and the coolant moving. What you just did is the fastest cold start of any frame in its class. Every pilot in the program has done it a few hundred times, and every one of them still grins when the lights come on.</p>
+          <ol class="steps">
+            <li><b class="mono">T+0.0</b><span><strong>Ignition.</strong> The salt core reaches operating temperature in 3.1 s. You feel it through the seat first.</span></li>
+            <li><b class="mono">T+3.4</b><span><strong>Handshake.</strong> Forty-one actuators report in, heel to crown, in 0.6 s.</span></li>
+            <li><b class="mono">T+9.2</b><span><strong>Sync.</strong> The harness calibrates to your reflexes — not the other way round.</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div id="systems">
+      <section class="sec spec" data-shot="reactor" data-spot="0">
+        <div class="pin">
+          <article class="card card-l">
+            <p class="kicker mono"><span>02.1</span> Systems · Reactor</p>
+            <h3>A 42-megawatt heart, sealed for life.</h3>
+            <p class="body">A molten-salt core the size of a beer keg sits behind the chest plate. It is sealed at the factory and never opened again. It makes enough power for a small town and enough heat to boil the rain off the armour.</p>
+            <dl class="data mono"><div><dt>Output</dt><dd>42 MW cont.</dd></div><div><dt>Endurance</dt><dd>96 h</dd></div><div><dt>Failsafe</dt><dd>Passive drain-down</dd></div></dl>
+          </article>
+        </div>
+      </section>
+      <section class="sec spec" data-shot="actuators" data-spot="1">
+        <div class="pin">
+          <article class="card card-r">
+            <p class="kicker mono"><span>02.2</span> Systems · Actuators</p>
+            <h3>Forty-one joints that know when you flinch.</h3>
+            <p class="body">Every joint is an electro-hydraulic actuator with its own controller and its own opinion. The knees carry 1,900 kilonewtons at full stride and still correct for a loose paving slab in under a millisecond. You decide where to go. They decide not to fall over.</p>
+            <dl class="data mono"><div><dt>Joints</dt><dd>41</dd></div><div><dt>Response</dt><dd>0.8 ms</dd></div><div><dt>Knee load</dt><dd>1,900 kN</dd></div></dl>
+          </article>
+        </div>
+      </section>
+      <section class="sec spec" data-shot="armour" data-spot="2">
+        <div class="pin">
+          <article class="card card-l">
+            <p class="kicker mono"><span>02.3</span> Systems · Armour</p>
+            <h3>Bolted, not welded. On purpose.</h3>
+            <p class="body">Layered ceramic over a titanium lattice, hung in 212 panels. Every one comes off with a single socket size, so a four-person field crew can swap a shoulder in forty minutes — in the rain, at night, with you still in the seat.</p>
+            <dl class="data mono"><div><dt>Composite</dt><dd>180 mm</dd></div><div><dt>Panels</dt><dd>212</dd></div><div><dt>Field swap</dt><dd>40 min</dd></div></dl>
+          </article>
+        </div>
+      </section>
+      <section class="sec spec" data-shot="weapons" data-spot="3">
+        <div class="pin">
+          <article class="card card-r">
+            <p class="kicker mono"><span>02.4</span> Systems · Hardpoints</p>
+            <h3>The last thing you certify. The least interesting.</h3>
+            <p class="body">A six-barrel rotary on the right shoulder, a twelve-cell pod on the left, and a 2.1-metre forearm shield you will use more than both. Trials fire inert rounds only. Most of your hours go into lifting, bracing and walking — the Warden’s first deployments are disaster response.</p>
+            <dl class="data mono"><div><dt>Rotary</dt><dd>30 mm × 6</dd></div><div><dt>Pod</dt><dd>12 cells</dd></div><div><dt>Shield</dt><dd>2.1 m</dd></div></dl>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="sec stats" id="numbers" data-shot="stats">
+      <div class="pin">
+        <div class="block block-l">
+          <p class="kicker mono">03 — The numbers the insurers asked about first</p>
+          <ul class="figs">
+            <li><b data-count="11.4" data-dec="1">0</b><i>m</i><span class="mono">Standing height, heel to crown</span></li>
+            <li><b data-count="40" data-dec="0">0</b><i>t</i><span class="mono">Mass with a full core — and one pilot</span></li>
+            <li><b data-count="42" data-dec="0">0</b><i>MW</i><span class="mono">Continuous reactor output</span></li>
+            <li><b data-count="68" data-dec="0">0</b><i>km/h</i><span class="mono">Top speed on flat ground. Yes, it runs.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec program" id="program" data-shot="program">
+      <div class="pin">
+        <div class="block block-l wide">
+          <p class="kicker mono">04 — The test-pilot program · Cohort 09</p>
+          <h2>Six seats. Twenty-three weeks. <em>One very large first step.</em></h2>
+          <ol class="timeline">
+            <li><b class="mono">Wk 01–08</b><strong>Simulator</strong><span>A full-scale motion rig. You will fall over in here so you never do out there.</span></li>
+            <li><b class="mono">Wk 09–16</b><strong>Tethered</strong><span>The Warden on a sixty-tonne gantry harness. Your first real steps, with a safety net the size of a building.</span></li>
+            <li><b class="mono">Wk 17–23</b><strong>Untethered</strong><span>The proving ground: rubble fields, flooded streets, night work, rain.</span></li>
+            <li><b class="mono">Grad.</b><strong>Callsign</strong><span>Painted on a shoulder plate by the crew who kept you upright.</span></li>
+          </ol>
+          <div class="req">
+            <p class="mono req-t">You bring</p>
+            <ul>
+              <li>1,500+ hours rotary or fixed-wing — or five years running heavy plant</li>
+              <li>Sustained 5 g tolerance and a clean medical</li>
+              <li>Standing height 1.60–1.93 m. The seat is not adjustable; the pilot is.</li>
+              <li>Calm. We test for it.</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="quote">
+          <img src="/img/hangar/pilot.webp" alt="Captain Ines Varga in a grey flight suit, helmet under her arm, in the hangar" width="960" height="1285" loading="lazy">
+          <blockquote>“The first step is the loudest thing you will ever feel. The second one is yours.”</blockquote>
+          <figcaption class="mono">Capt. Ines Varga · Pilot 004 · Cohort 03</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec apply" id="apply" data-shot="apply">
+      <div class="pin">
+        <div class="cta">
+          <p class="kicker mono">05 — Applications close 14 November</p>
+          <h2 class="cta-title">Your shift<br>starts at <em>dawn.</em></h2>
+          <p class="body">Shortlisted candidates spend two days at Northfield: one in the simulator, one in the seat. Nobody arrives with mech experience. Nobody has any.</p>
+          <div class="cta-row">
+            <a class="btn btn-amber btn-lg" href="#apply" data-magnetic data-cursor="label" data-cursor-label="Go">Begin application</a>
+            <a class="btn btn-ghost btn-lg" href="#apply" data-magnetic>Pilot’s brief · PDF 2.4 MB</a>
+          </div>
+          <p class="cta-meta mono">2,418 applied for Cohort 08 · Six seats · Northfield, Gate C</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot-in">
+      <div class="foot-brand">
+        <p class="foot-mark">Hangar<b>Nine</b></p>
+        <p class="mono">Heavy Systems · Northfield Proving Ground · Bay 09</p>
+      </div>
+      <nav class="foot-cols" aria-label="Footer">
+        <div><p class="mono">Program</p><a href="#program">Cohort 09</a><a href="#numbers">Requirements</a><a href="#apply">Apply</a></div>
+        <div><p class="mono">Hangar</p><a href="#systems">The Warden</a><a href="#top">Safety record</a><a href="#top">Ground crew careers</a></div>
+        <div><p class="mono">Visit</p><span>Gate C, Northfield</span><span>Tours Saturdays, 10:00</span><span>Ear protection provided</span></div>
+      </nav>
+      <p class="foot-legal mono"><span>© 2026 Hangar Nine Heavy Systems — a fictional manufacturer.</span><span>The Warden is not for sale. The seats are.</span></p>
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

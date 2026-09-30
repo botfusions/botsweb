@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lithos — Mineral specimens &amp; fine jewellery, Geneva</title>
+  <meta name="description" content="Museum-grade mineral specimens, chosen one at a time, and a jewellery line cut from the stones we could not bear to sell.">
+  <meta name="theme-color" content="#050407">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Cpath d=%22M12 2.5 18.5 8 16 20.5H8L5.5 8Z%22 fill=%22%239d6bff%22/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Italiana&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-half loader-top"></div>
+    <div class="loader-half loader-bot"></div>
+    <div class="loader-core">
+      <svg class="loader-stone" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width=".6" opacity=".35"/>
+        <path class="loader-crack" pathLength="1" d="M16 60 L27 58 L33 62 L41 57 L49 61 L57 58 L64 62 L71 57 L80 61 L88 58 L95 61 L104 60"/>
+      </svg>
+      <p class="loader-word">Lithos</p>
+      <p class="loader-line">Opening the vault <span class="loader-pct">0</span>%</p>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Lithos home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 18.5 8 16 20.5H8L5.5 8Z M5.5 8h13 M12 2.5 9.5 8 12 20.5 14.5 8Z" fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>
+      <span>Lithos</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#collection">Collection</a>
+      <a href="#jewellery">Jewellery</a>
+      <a href="#provenance">Provenance</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" type="button" aria-pressed="false" data-cursor="link"><i></i><i></i><i></i><span>Sound</span></button>
+      <a class="btn btn-ghost" href="#visit" data-magnetic>Private viewing</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- I. Hero ─────────────────────────────────────────── -->
+    <section class="hero" data-station="hero">
+      <p class="eyebrow cz">Mineral specimens &amp; fine jewellery &nbsp;·&nbsp; Geneva, since 1987</p>
+      <h1 class="title" aria-label="Four billion years of patience.">
+        <span class="line"><span>Four billion years</span></span>
+        <span class="line"><span><em>of</em> patience.</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p class="sub">Museum-grade minerals, chosen one stone at a time — and a jewellery line cut from the specimens we could not bear to sell.</p>
+        <p class="label cz"><b>Specimen I</b><br>Amethyst geode · Artigas<br>Still sealed</p>
+      </div>
+    </section>
+
+    <!-- II. The crack ─────────────────────────────────────── -->
+    <section class="crack" id="crack" data-station="crack">
+      <div class="crack-copy">
+        <p class="eyebrow cz">I &nbsp;·&nbsp; The opening</p>
+        <h2 class="h2">Every geode is<br>a sealed room.</h2>
+        <p class="lede">A hundred and thirty million years ago this stone was a gas bubble in cooling lava. Water seeped in, one drop per century, and left its silica behind. Nobody has ever seen the inside.</p>
+        <p class="lede strong">You will be the first.</p>
+        <div class="hold-cta">
+          <span class="hold-ring" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/><circle class="p" cx="20" cy="20" r="17" pathLength="1"/></svg></span>
+          <span class="cz">Press &amp; hold the stone</span>
+        </div>
+        <button class="reseal cz" type="button" data-cursor="link">Seal it again</button>
+      </div>
+    </section>
+
+    <!-- III. The collection ───────────────────────────────── -->
+    <div id="collection" class="collection">
+      <header class="col-head">
+        <p class="eyebrow cz">II &nbsp;·&nbsp; The collection</p>
+        <h2 class="h2">Four stones, <em>this season.</em></h2>
+      </header>
+
+      <section class="spec spec-left" data-station="amethyst">
+        <article class="spec-card">
+          <p class="spec-num cz"><span>Specimen I</span><span>SiO₂ · Fe³⁺</span></p>
+          <h3>Amethyst Geode</h3>
+          <p class="spec-desc">Formed in a gas pocket of the Paraná basalt flows. The violet is trace iron, darkened by natural radiation over geological time — never heated, dyed or restored.</p>
+          <dl class="facts">
+            <div><dt>Locality</dt><dd>Artigas, Uruguay</dd></div>
+            <div><dt>Age</dt><dd>132 million years</dd></div>
+            <div><dt>Weight</dt><dd>14.2 kg · pair</dd></div>
+            <div><dt>Price</dt><dd>CHF 18,400</dd></div>
+          </dl>
+          <a class="btn btn-solid" href="#visit" data-magnetic>Reserve for viewing</a>
+        </article>
+      </section>
+
+      <section class="spec spec-right" data-station="quartz">
+        <article class="spec-card">
+          <p class="spec-num cz"><span>Specimen II</span><span>SiO₂</span></p>
+          <h3>Rock Crystal Cluster</h3>
+          <p class="spec-desc">Water-clear points with two phantoms and a rainbow fracture in the tallest terminal. Cleaned with water and a soft brush — no acid bath, no oil to hide the flaws.</p>
+          <dl class="facts">
+            <div><dt>Locality</dt><dd>Mount Ida, Arkansas</dd></div>
+            <div><dt>Age</dt><dd>~ 300 million years</dd></div>
+            <div><dt>Weight</dt><dd>3.8 kg</dd></div>
+            <div><dt>Price</dt><dd>CHF 6,900</dd></div>
+          </dl>
+          <a class="btn btn-solid" href="#visit" data-magnetic>Reserve for viewing</a>
+        </article>
+      </section>
+
+      <section class="spec spec-left" data-station="pyrite">
+        <article class="spec-card">
+          <p class="spec-num cz"><span>Specimen III</span><span>FeS₂</span></p>
+          <h3>Pyrite Cubes</h3>
+          <p class="spec-desc">Cubes so square they were once thought to be carved by hand. The fine striations on every face are the record of the crystal growing, one atomic layer at a time.</p>
+          <dl class="facts">
+            <div><dt>Locality</dt><dd>Navajún, La Rioja, Spain</dd></div>
+            <div><dt>Age</dt><dd>~ 120 million years</dd></div>
+            <div><dt>Weight</dt><dd>2.1 kg</dd></div>
+            <div><dt>Price</dt><dd>CHF 4,250</dd></div>
+          </dl>
+          <a class="btn btn-solid" href="#visit" data-magnetic>Reserve for viewing</a>
+        </article>
+      </section>
+
+      <section class="spec spec-right" data-station="ammonite">
+        <article class="spec-card">
+          <p class="spec-num cz"><span>Specimen IV</span><span>CaCO₃ · aragonite</span></p>
+          <h3>Iridescent Ammonite</h3>
+          <p class="spec-desc"><i>Cleoniceras</i>, with original nacre over four-fifths of the shell. The suture lines — the walls between its chambers — are drawn in agate, like frost on a window.</p>
+          <dl class="facts">
+            <div><dt>Locality</dt><dd>Mahajanga, Madagascar</dd></div>
+            <div><dt>Age</dt><dd>110 million years</dd></div>
+            <div><dt>Weight</dt><dd>1.6 kg</dd></div>
+            <div><dt>Price</dt><dd>CHF 3,600</dd></div>
+          </dl>
+          <a class="btn btn-solid" href="#visit" data-magnetic>Reserve for viewing</a>
+        </article>
+      </section>
+    </div>
+
+    <!-- IV. Jewellery ─────────────────────────────────────── -->
+    <section class="jewel" id="jewellery" data-station="wide">
+      <div class="jewel-head">
+        <p class="eyebrow cz">III &nbsp;·&nbsp; The jewellery</p>
+        <h2 class="h2">Cut from the stones <em>we kept.</em></h2>
+        <p class="lede">When a specimen is too fractured to sell whole, our cutter in Idar-Oberstein takes what is left and sets it in platinum. Each piece is engraved inside with the number of the stone it came from.</p>
+      </div>
+      <div class="pieces">
+        <figure class="piece">
+          <div class="piece-img"><img src="/img/lithos/ring.webp" alt="Platinum signet ring set with a violet amethyst cabochon on black velvet" loading="lazy" width="800" height="1000"></div>
+          <figcaption>
+            <p class="cz piece-from">From specimen I</p>
+            <h3>Artigas Signet</h3>
+            <p>Amethyst cabochon, 6.2 ct, in hand-forged platinum.</p>
+            <p class="piece-price">CHF 4,800</p>
+          </figcaption>
+        </figure>
+        <figure class="piece piece-mid">
+          <div class="piece-img"><img src="/img/lithos/pendant.webp" alt="Raw clear quartz point pendant capped in platinum on a fine chain" loading="lazy" width="800" height="1000"></div>
+          <figcaption>
+            <p class="cz piece-from">From specimen II</p>
+            <h3>Ouachita Drop</h3>
+            <p>A single uncut quartz terminal, capped in brushed platinum.</p>
+            <p class="piece-price">CHF 2,650</p>
+          </figcaption>
+        </figure>
+        <figure class="piece">
+          <div class="piece-img"><img src="/img/lithos/studs.webp" alt="Pair of tiny pyrite cube stud earrings in platinum settings" loading="lazy" width="800" height="1000"></div>
+          <figcaption>
+            <p class="cz piece-from">From specimen III</p>
+            <h3>Navajún Studs</h3>
+            <p>Two natural 5 mm cubes, grown, not cut. Platinum claws.</p>
+            <p class="piece-price">CHF 1,450</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- V. Provenance ─────────────────────────────────────── -->
+    <section class="prov" id="provenance" data-station="low">
+      <div class="prov-inner">
+        <p class="eyebrow cz">IV &nbsp;·&nbsp; Provenance &amp; ethics</p>
+        <h2 class="h2">Every stone arrives<br><em>with its paperwork.</em></h2>
+        <div class="prov-grid">
+          <figure class="prov-photo"><img src="/img/lithos/miner.webp" alt="A miner's hands holding a freshly opened amethyst geode in a basalt tunnel" loading="lazy" width="1600" height="900"><figcaption class="cz">Artigas, Uruguay — the Pereira family mine, level 3</figcaption></figure>
+          <ol class="principles">
+            <li><span class="cz">01</span><h3>Named, not sourced</h3><p>We buy from thirty-one miners and families we know by name — never at auction. Each label carries the GPS locality, the date it came out of the ground and who found it.</p></li>
+            <li><span class="cz">02</span><h3>Untreated, always</h3><p>No heat, no dye, no resin, no reassembly. If a specimen has ever been repaired, the label says so, in ink, on the front.</p></li>
+            <li><span class="cz">03</span><h3>We publish what we paid</h3><p>On average 41% of a sale price goes back to the mine. The trade norm is under five. The figure for every stone is printed on its certificate.</p></li>
+          </ol>
+        </div>
+        <div class="stats">
+          <div><b>412</b><span class="cz">specimens catalogued</span></div>
+          <div><b>31</b><span class="cz">named miners &amp; families</span></div>
+          <div><b>0</b><span class="cz">treated stones, ever</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VI. Visit ─────────────────────────────────────────── -->
+    <section class="visit" id="visit" data-station="final">
+      <div class="visit-inner">
+        <p class="eyebrow cz">V &nbsp;·&nbsp; By appointment</p>
+        <h2 class="visit-title">Hold something<br><em>older than the Alps.</em></h2>
+        <p class="lede">Private viewings at Rue du Rhône 48, one party at a time, with the stones out of their cases and in your hands. Bring nothing but curiosity; we provide the gloves and the loupe.</p>
+        <div class="visit-cta">
+          <a class="btn btn-solid btn-lg" href="#visit" data-magnetic>Book a private viewing</a>
+          <a class="btn btn-ghost btn-lg" href="#visit" data-magnetic>Request the catalogue</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot" data-station="foot" data-hold="1">
+      <div class="foot-grid">
+        <div class="foot-brand"><span class="cz">Lithos</span><p>Mineral specimens &amp; fine jewellery.<br>Geneva, since 1987.</p></div>
+        <p>Rue du Rhône 48<br>1204 Genève<br>Tuesday — Saturday, 11:00 — 19:00</p>
+        <p>viewing@lithos.example<br>+41 22 000 48 48</p>
+        <p>Instagram<br>Journal<br>Certificates</p>
+      </div>
+      <p class="fine cz">© Lithos SA · Every specimen sold with a signed certificate of locality · Stones photographed, not rendered — except here.</p>
+    </footer>
+  </main>
+
+  <div class="press" aria-hidden="true"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="34"/><circle class="p" cx="40" cy="40" r="34" pathLength="1"/></svg><span class="cz">Hold</span></div>
+  <div class="toast cz" role="status"></div>
+  <div class="light-hint cz" aria-hidden="true">Your cursor is the light</div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

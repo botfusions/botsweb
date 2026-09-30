@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hammer &amp; Ember — Pattern-welded swords, forged to commission</title>
+  <meta name="description" content="A two-person bladesmith atelier forging damascus swords to commission. Every blade is folded 512 times. None are made twice.">
+  <meta name="theme-color" content="#0a0806">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%226%22 fill=%22%230a0806%22/%3E%3Cpath d=%22M5 11h14l3-3h5v5h-3l-2 2H14l-1 4h-4l1-4H5z%22 fill=%22%23ff6a1f%22/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="flash" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="loader" role="status" aria-live="polite">
+    <div class="loader-inner">
+      <p class="loader-mark">Hammer <em>&amp;</em> Ember</p>
+      <div class="loader-bar"><i></i></div>
+      <p class="loader-line"><span class="loader-state">Lighting the forge</span><span class="loader-pct">0</span></p>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Hammer and Ember home">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M5 11h14l3-3h5v5h-3l-2 2H14l-1 4h-4l1-4H5z" fill="currentColor"/>
+        <path d="M9 22h14M11 25.5h10" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <circle class="brand-spark" cx="25" cy="18" r="1.4"/>
+      </svg>
+      <span>Hammer <em>&amp;</em> Ember</span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#process">Process</a>
+      <a href="#steel">The steel</a>
+      <a href="#commissions">Commissions</a>
+      <a href="#voices">Owners</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" type="button" aria-pressed="true" data-cursor="link"><span class="sound-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">Sound on</span></button>
+      <a class="btn btn-hot" href="#commission" data-magnetic><span class="cta-long">Commission a blade</span><span class="cta-short">Commission</span></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" data-station="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>Bladesmiths</span><span class="eb-sep"> &nbsp;·&nbsp; </span><span>Semois Valley, Belgium</span><span class="eb-3"> &nbsp;·&nbsp; Since 2009</span></p>
+        <h1 class="title">
+          <span class="t-line"><span>Every blade is</span></span>
+          <span class="t-line"><span>folded <b>512</b> times.</span></span>
+          <span class="t-accent"><span>None are made twice.</span></span>
+        </h1>
+        <p class="sub">Two smiths, one coal forge, and a waiting list. We forge pattern-welded swords to commission — one at a time, by hand, from raw billet to living edge.</p>
+      </div>
+      <div class="hint" aria-hidden="true">
+        <span><kbd>Scroll</kbd>heat the steel</span>
+        <span><kbd class="k-strike">Click</kbd>strike</span>
+        <span><kbd class="k-hold">Hold</kbd>work the bellows</span>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <article class="step right" data-station="fold">
+        <p class="step-num"><b>01</b><span>Fold</span></p>
+        <h2>Two steels.<br><em>One billet.</em></h2>
+        <p>We stack bright 15N20 nickel steel between plates of 1095 high-carbon, forge-weld the stack at 1,260&nbsp;°C, then cut it, restack it and weld it again — nine times, until one bar holds 512 layers and a pattern no one could plan.</p>
+        <p class="meta">Welding heat · 1,260 °C &nbsp;/&nbsp; Flux · anhydrous borax</p>
+      </article>
+      <article class="step left" data-station="forge">
+        <p class="step-num"><b>02</b><span>Forge</span></p>
+        <h2>Strike at orange.<br><em>Never at red.</em></h2>
+        <p>Steel moves like cold clay at 1,100&nbsp;°C and cracks below cherry, so we hammer only while it glows. Roughly four hundred blows draw the bar into a blade, set the bevels and bring the point.</p>
+        <p class="meta">Try it: <span class="k-verb">click</span> to strike the hot spot</p>
+      </article>
+      <article class="step right" data-station="quenchstep">
+        <p class="step-num"><b>03</b><span>Quench</span></p>
+        <h2>One second<br><em>in warm brine.</em></h2>
+        <p>At 800&nbsp;°C the blade goes point-first into brine held at 50&nbsp;°C. The edge freezes into hard martensite; the spine stays springy. It is the most frightening second of the month — a hidden flaw shows itself here, or never.</p>
+        <p class="meta">The trough is waiting. Keep scrolling.</p>
+      </article>
+      <article class="step left" data-station="polish">
+        <p class="step-num"><b>04</b><span>Polish</span></p>
+        <h2>Nine stones.<br><em>Then acid.</em></h2>
+        <p>Three days on waterstones from 120 to 8,000 grit, by hand, along the length. Then a bath of ferric chloride eats the carbon layers dark and leaves the nickel bright — and the pattern the hammer made finally surfaces.</p>
+        <p class="meta">Finished blades hang on the north wall</p>
+      </article>
+    </section>
+
+    <section class="steel" id="steel" data-station="steel">
+      <div class="steel-head">
+        <p class="eyebrow">The steel</p>
+        <h2>It remembers<br><em>every blow.</em></h2>
+      </div>
+      <p class="lede steel-lede">Pattern-welded steel is not decoration. Hard layers carry the edge, soft layers take the shock, and the figure you see on the flat is a literal map of how the metal was moved.</p>
+      <dl class="stats">
+        <div><dt>Layers</dt><dd><span class="num" data-count="512">512</span></dd><p>1095 carbon steel and 15N20 nickel steel, forge-welded in nine folds.</p></div>
+        <div><dt>Carbon at the edge</dt><dd><span class="num" data-count="0.84" data-dec="2">0.84</span><small>%</small></dd><p>Measured after decarburisation losses in the fire.</p></div>
+        <div><dt>Hardness</dt><dd><span class="num">58–60</span><small>HRC</small></dd><p>Differentially tempered: a hard edge on a spring-soft spine of 48.</p></div>
+        <div><dt>Hours per blade</dt><dd><span class="num" data-count="310">310</span></dd><p>From the first weld to the last pass on the 8,000 stone.</p></div>
+      </dl>
+    </section>
+
+    <section class="commissions" id="commissions" data-station="wide">
+      <div class="com-head">
+        <p class="eyebrow">Commissions · 2027 list</p>
+        <h2>Eight swords a year.<br><em>Three places left.</em></h2>
+        <p class="lede">Every commission begins with a conversation at the forge, or on a call if you are far away. You choose the form; the steel chooses its pattern. Lead time is currently fourteen months.</p>
+      </div>
+      <div class="blades">
+        <article class="blade-card">
+          <p class="bc-type">Seax</p>
+          <h3>The Long Knife</h3>
+          <p>Broken-back single edge, 38–60&nbsp;cm. Bog-oak grip, bronze ferrule, riveted leather sheath.</p>
+          <p class="bc-price"><small>from</small> €4,800</p>
+        </article>
+        <article class="blade-card hot">
+          <p class="bc-type">Petersen Type X</p>
+          <h3>The Viking Sword</h3>
+          <p>Pattern-welded core with a fuller, 91&nbsp;cm. Cast-bronze guard and lobed pommel with knotwork carved by hand.</p>
+          <p class="bc-price"><small>from</small> €9,600</p>
+        </article>
+        <article class="blade-card">
+          <p class="bc-type">Oakeshott XVIIIa</p>
+          <h3>The Hand-and-a-Half</h3>
+          <p>Stiff, diamond-section longsword, 112&nbsp;cm. Wrought-iron guard, wire-bound grip, fitted scabbard.</p>
+          <p class="bc-price"><small>from</small> €14,500</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="voices" id="voices" data-station="voices">
+      <p class="eyebrow">Owners</p>
+      <div class="quotes">
+        <blockquote>
+          <p>“I asked for a sword my grandfather would have recognised. They sent me a photograph of the billet after every fold.”</p>
+          <cite>Ingrid Vestli · Bergen · Type X, 2024</cite>
+        </blockquote>
+        <blockquote>
+          <p>“Tap the flat and it rings for eleven seconds. I have timed it more often than I would like to admit.”</p>
+          <cite>Tomás Rivera · Seville · Seax, 2023</cite>
+        </blockquote>
+        <blockquote>
+          <p>“Fourteen months on the list. I would have waited three years.”</p>
+          <cite>K. Morimoto · Kyoto · Longsword, 2025</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="finale" id="commission">
+      <div class="q-marker" data-station="qlift"></div>
+      <div class="q-marker" data-station="qplunge"></div>
+      <div class="q-marker" data-station="qrise"></div>
+      <div class="q-marker" data-station="display"></div>
+      <div class="finale-sticky">
+        <div class="finale-copy q-a">
+          <p class="eyebrow">The quench</p>
+          <h2>Into the brine.</h2>
+        </div>
+        <div class="finale-copy q-b">
+          <p class="eyebrow">Cooled · etched · yours</p>
+          <h2>Heat the blade.<br><em>Strike the steel.</em></h2>
+          <p class="lede">Tell us what it is for, who will carry it and how it should feel in the hand. We will tell you honestly whether we are the right smiths for it.</p>
+          <div class="cta-row">
+            <a class="btn btn-hot btn-lg" href="mailto:forge@hammerandember.be" data-magnetic><span>Request a commission</span></a>
+            <a class="btn btn-ghost btn-lg" href="#process" data-magnetic><span>Visit the forge</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot-grid">
+        <div>
+          <p class="foot-brand">Hammer <em>&amp;</em> Ember</p>
+          <p>Forge de la Semois<br>Rue du Moulin 4, 6830 Bouillon<br>Belgium</p>
+        </div>
+        <div>
+          <p class="foot-h">The forge</p>
+          <p>Open to commissioners<br>Saturdays, by appointment<br>Fire lit at nine</p>
+        </div>
+        <div>
+          <p class="foot-h">Write</p>
+          <p><a href="mailto:forge@hammerandember.be">forge@hammerandember.be</a><br>+32 61 46 12 09</p>
+        </div>
+        <div>
+          <p class="foot-h">Letters from the forge</p>
+          <p>Four a year. Billets, failures, finished blades.</p>
+          <form class="news" onsubmit="event.preventDefault(); this.classList.add('sent');">
+            <input type="email" placeholder="your@email" aria-label="Email address" required>
+            <button type="submit" data-cursor="link">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <p class="foot-legal"><span>© 2026 Hammer &amp; Ember BV</span><span>Swords are sold as art objects and shipped to adults only.</span></p>
+    </footer>
+  </main>
+
+  <aside class="hud" aria-label="Forge readout">
+    <div class="hud-temp">
+      <p class="hud-label">Blade</p>
+      <p class="hud-val"><span class="hud-c">0</span><small>°C</small></p>
+      <p class="hud-name">Black heat</p>
+    </div>
+    <div class="hud-gauge" aria-hidden="true"><i class="hud-needle"></i></div>
+    <div class="hud-folds">
+      <p class="hud-label">Folds</p>
+      <p class="hud-val"><span class="hud-f">000</span><small>/512</small></p>
+    </div>
+    <div class="hud-bellows" aria-hidden="true"><span>Bellows</span><i></i></div>
+  </aside>
+  <div class="toast" role="status"></div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
